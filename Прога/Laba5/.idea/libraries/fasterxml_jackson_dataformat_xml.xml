@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="fasterxml.jackson.dataformat.xml" type="repository">
+    <properties maven-id="com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-dataformat-xml-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax2-api-4.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/woodstox-core-6.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-dataformat-xml-2.15.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.15.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.15.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.15.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax2-api-4.2.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/woodstox-core-6.5.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
