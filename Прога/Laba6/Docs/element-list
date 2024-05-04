@@ -1,5 +1,5 @@
 unnamed package
-Controller
+Model.Controller
 Model
 Model.CommandHandler
 Model.CommandHandler.Commands
@@ -13,4 +13,4 @@ Model.Storage
 Model.Storage.ObjectDescription
 Model.Storage.StorageObject
 Model.Validation
-View
+Server.View
