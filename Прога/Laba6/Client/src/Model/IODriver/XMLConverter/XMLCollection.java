@@ -1,8 +1,8 @@
 package Model.IODriver.XMLConverter;
 
-import Client.Model.IODriver.XMLParser.Parser;
-import Client.Model.Storage.ObjectDescription.baseMetaData;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.IODriver.XMLParser.Parser;
+import Model.Storage.ObjectDescription.baseMetaData;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 

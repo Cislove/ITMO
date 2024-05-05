@@ -1,6 +1,6 @@
 package Controller;
 
-import Client.View.Handler;
+import View.Handler;
 import Model.CommandHandler.Commands.Pair;
 import Model.EntryBlock;
 

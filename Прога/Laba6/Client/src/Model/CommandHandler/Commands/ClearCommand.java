@@ -1,26 +1,34 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Validation.IDHandler;
+import Model.NetworkLogic.Handler;
+import Model.RequestLogic.Request;
+import Model.Storage.IStorage;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Validation.IDHandler;
+
+import java.io.IOException;
 
 /**
  * Класс реализации команды "clear"
  * @author Ильнар Рахимов
  */
 public class ClearCommand implements Command {
-    IStorage storage;
+    Handler server;
     IDHandler idHandler;
-    public ClearCommand(IStorage storage, IDHandler idHandler){
-        this.storage = storage;
+    public ClearCommand(Handler server, IDHandler idHandler){
+        this.server = server;
         this.idHandler = idHandler;
     }
     @Override
     public Pair<Integer, String> execute() {
-        for(StudyGroup el: storage.getAllElements()){
-            idHandler.openID(Math.toIntExact(el.getId()));
+        try {
+            int response = (int) server.sendRequestAndGetResponse(new Request("clear", null));
+            if(response == 1)
+                return new Pair<>(0, "Коллекция успешно очищена\n");
+            else
+                return new Pair<>(response, "При очистке возникли непредвиденные проблемы\n");
+        } catch (IOException | ClassNotFoundException e) {
+            return new Pair<>(-1, e.getMessage());
         }
-        storage.clear();
-        return new Pair<>(0, "Коллекция успешно очищена\n");
     }
 }

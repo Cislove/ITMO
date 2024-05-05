@@ -1,9 +1,9 @@
 package Model.CommandHandler;
 
 
-import Client.Model.CommandHandler.Commands.ArgumentCommand;
-import Client.Model.CommandHandler.Commands.Command;
-import Client.Model.CommandHandler.Commands.Pair;
+import Model.CommandHandler.Commands.ArgumentCommand;
+import Model.CommandHandler.Commands.Command;
+import Model.CommandHandler.Commands.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;

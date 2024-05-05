@@ -1,16 +1,17 @@
 package Model;
 
-import Client.Model.CommandHandler.Switcher;
-import Client.Model.IODriver.IOHandler;
-import Client.Model.IODriver.Reader.Reader;
-import Client.Model.IODriver.Writter.Writter;
-import Client.Model.IODriver.XMLConverter.XMLCollection;
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Storage.StorageWithStreamAPI;
-import Client.Model.Validation.ClosedFieldValidator;
-import Client.Model.Validation.IDHandler;
-import Client.Model.Validation.ValidateException;
+import Model.CommandHandler.Commands.Pair;
+import Model.CommandHandler.Switcher;
+import Model.IODriver.IOHandler;
+import Model.IODriver.Reader.Reader;
+import Model.IODriver.Writter.Writter;
+import Model.IODriver.XMLConverter.XMLCollection;
+import Model.Storage.IStorage;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageWithStreamAPI;
+import Model.Validation.ClosedFieldValidator;
+import Model.Validation.IDHandler;
+import Model.Validation.ValidateException;
 
 import java.io.IOException;
 

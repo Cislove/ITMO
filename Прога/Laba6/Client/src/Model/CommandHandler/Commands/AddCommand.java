@@ -1,12 +1,12 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.CommandHandler.Holders.ClosedFieldsHolder;
-import Client.Model.CommandHandler.Holders.FieldHolder;
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Validation.IDHandler;
-import Client.Model.Validation.Parser;
-import Client.Model.Validation.Validator;
+import Model.CommandHandler.Holders.ClosedFieldsHolder;
+import Model.CommandHandler.Holders.FieldHolder;
+import Model.Storage.IStorage;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Validation.IDHandler;
+import Model.Validation.Parser;
+import Model.Validation.Validator;
 
 /**
  * Класс реализации команды "add"
