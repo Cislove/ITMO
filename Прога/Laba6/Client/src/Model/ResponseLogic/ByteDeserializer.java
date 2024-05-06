@@ -8,9 +8,9 @@ import java.util.stream.IntStream;
 public class ByteDeserializer implements Deserializer<byte[]>{
 
     @Override
-    public Object deserialize(byte[] message) throws IOException, ClassNotFoundException {
+    public Response deserialize(byte[] message) throws IOException, ClassNotFoundException {
         ByteArrayInputStream bois = new ByteArrayInputStream(message);
         ObjectInputStream ois = new ObjectInputStream(bois);
-        return ois.readObject();
+        return (Response) ois.readObject();
     }
 }

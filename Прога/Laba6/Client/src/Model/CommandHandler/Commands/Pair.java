@@ -1,6 +1,6 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.CommandHandler.Switcher;
+import Model.CommandHandler.Switcher;
 
 /**
  * Класс структура данных "Пара". Описывает ответ классов команд для {@link Switcher}

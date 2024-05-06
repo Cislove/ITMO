@@ -1,6 +1,6 @@
 package Model;
 
-import Client.Model.CommandHandler.Commands.Pair;
+import Model.CommandHandler.Commands.Pair;
 
 /**
  * Интерфейс взаимодействия с {@link EntryBlock}

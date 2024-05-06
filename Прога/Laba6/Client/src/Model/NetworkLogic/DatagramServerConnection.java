@@ -6,23 +6,21 @@ import java.net.*;
 public class DatagramServerConnection implements ServerConnection {
     private final int BUFFER_SIZE = 8196;
     private final DatagramSocket socket;
+    private final InetAddress address;
     private final int timeout;
-    private final SocketAddress address;
+    private final int port;
 
     public DatagramServerConnection(InetAddress address, int port, int timeout) throws SocketException {
-        socket = new DatagramSocket(port);
+        socket = new DatagramSocket();
+        this.address = address;
+        this.port = port;
         this.timeout = timeout;
-        this.address = new InetSocketAddress(address, port);
     }
 
     @Override
-    public byte[] listenAndGetData() throws IOException, ClassNotFoundException{
-        //Deserializer <Byte[]> deserializer = new ByteDeserializer();
+    public byte[] listenAndGetData() throws IOException{
         DatagramPacket dp = new DatagramPacket(new byte[BUFFER_SIZE], BUFFER_SIZE);
         socket.setSoTimeout(timeout);
-        //socket.receive(dp);
-        //Byte[] arr = new Byte[dp.getData().length];
-        //IntStream.range(0, arr.length).forEach(i -> arr[i] = dp.getData()[i]);
         socket.receive(dp);
         return dp.getData();
     }
@@ -30,7 +28,7 @@ public class DatagramServerConnection implements ServerConnection {
     @Override
     public void sendData(byte[] data) throws IOException {
         //Serializer<Byte[]> serializer = new ByteSerializer();
-        DatagramPacket dp = new DatagramPacket(data, data.length, address);
+        DatagramPacket dp = new DatagramPacket(data, data.length, address, port);
         socket.send(dp);
     }
 }

@@ -1,7 +1,12 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.NetworkLogic.Handler;
+import Model.RequestLogic.Request;
+import Model.Storage.IStorage;
+import Model.Storage.StorageObject.StudyGroup;
+
+import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -9,19 +14,24 @@ import Client.Model.Storage.StorageObject.StudyGroup;
  * @author Ильнар Рахимов
  */
 public class ShowCommand implements Command {
-    IStorage storage;
-    public ShowCommand(IStorage storage){
-        this.storage = storage;
+    Handler server;
+    public ShowCommand(Handler server){
+        this.server = server;
     }
     @Override
     public Pair<Integer, String> execute() {
         StringBuilder response = new StringBuilder();
-        if(storage.getAllElements().isEmpty()){
-            response.append("В коллекции отсутствуют элементы\n");
+        try {
+            List<StudyGroup> collection = (List<StudyGroup>) server.sendRequestAndGetResponse(new Request("show", null));
+            if(collection.isEmpty()){
+                response.append("В коллекции отсутствуют элементы\n");
+            }
+            for(StudyGroup el: collection){
+                response.append(el.toString());
+            }
+            return new Pair<>(0, response.toString());
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        for(StudyGroup coll: storage.getAllElements()){
-            response.append(coll.toString());
-        }
-        return new Pair<>(0, response.toString());
     }
 }

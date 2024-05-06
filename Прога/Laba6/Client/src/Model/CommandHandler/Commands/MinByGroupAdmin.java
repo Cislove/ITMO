@@ -1,34 +1,30 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.NetworkLogic.Handler;
+import Model.RequestLogic.Request;
+import Model.Storage.StorageObject.StudyGroup;
+
+import java.io.IOException;
 
 /**
  * Класс реализации команды "min_by_group_admin"
  * @author Ильнар Рахимов
  */
 public class MinByGroupAdmin implements Command {
-    private final IStorage storage;
-    public MinByGroupAdmin(IStorage storage){
-        this.storage = storage;
+    private Handler server;
+    public MinByGroupAdmin(Handler server){
+        this.server = server;
     }
     @Override
     public Pair<Integer, String> execute(){
-        StudyGroup inst = null;
-        for(StudyGroup el: storage.getAllElements()){
-            if(el.getGroupAdmin() != null){
-                if(inst == null){
-                    inst = el;
-                    continue;
-                }
-                if (inst.getGroupAdmin().compareTo(el.getGroupAdmin()) > 0){
-                    inst = el;
-                }
+        try {
+            StudyGroup inst = (StudyGroup) server.sendRequestAndGetResponse(new Request("min_by_group_admin", null));
+            if(inst == null){
+                return new Pair<>(0, "Все элементы коллекции без поля groupAdmin\n");
             }
+            return new Pair<>(0, inst.toString());
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        if(inst == null){
-            return new Pair<>(0, "Все элементы коллекции без поля groupAdmin\n");
-        }
-        return new Pair<>(0, inst.toString());
     }
 }

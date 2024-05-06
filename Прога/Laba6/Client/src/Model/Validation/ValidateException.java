@@ -1,6 +1,6 @@
 package Model.Validation;
 
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.lang.reflect.InvocationTargetException;
 

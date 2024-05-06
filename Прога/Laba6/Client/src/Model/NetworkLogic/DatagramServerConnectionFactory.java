@@ -12,6 +12,6 @@ public class DatagramServerConnectionFactory implements ServerConnectionFactory 
 
     @Override
     public ServerConnection initializeConnection(String host, int port, int timeout) throws UnknownHostException, SocketException {
-        return new DatagramServerConnection(InetAddress.getByName(host), port, timeout);
+        return new DatagramServerConnection(InetAddress.getLocalHost(), port, timeout);
     }
 }

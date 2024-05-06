@@ -1,7 +1,7 @@
 package Model.Storage;
 
-import Client.Model.Storage.ObjectDescription.baseMetaData;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.ObjectDescription.baseMetaData;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 

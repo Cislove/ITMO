@@ -1,12 +1,13 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.CommandHandler.Holders.FieldHolder;
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Validation.IDHandler;
-import Client.Model.Validation.Parser;
-import Client.Model.Validation.Validator;
+import Model.CommandHandler.Holders.FieldHolder;
+import Model.NetworkLogic.Handler;
+import Model.RequestLogic.Request;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Validation.Parser;
+import Model.Validation.Validator;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -14,53 +15,69 @@ import java.util.LinkedList;
  * @author Ильнар Рахимов
  */
 public class UpdateCommand implements ArgumentCommand {
-    private final IStorage storage;
+    private Handler server;
     private FieldHolder fieldHolder;
-    private final IDHandler idHandler;
     private Integer id;
 
-    public UpdateCommand(IStorage storage, IDHandler idHandler){
-        this.storage = storage;
-        fieldHolder = new FieldHolder(new Validator(storage), new Parser());
-        this.idHandler = idHandler;
+    public UpdateCommand(Handler server){
+        fieldHolder = new FieldHolder(new Validator(), new Parser());
         id = -1;
     }
     @Override
     public Pair<Integer, String> execute(String arguments){
-        Pair<Integer, String> response;
+        Pair<Integer, String> out;
         if(id == -1){
             try {
                 //System.out.println(arguments);
                 id = Integer.parseInt(arguments);
-                if (id < 1 || !idHandler.checkId(id)) {
-                    id = -1;
+                if(id < 1){
                     throw new NumberFormatException();
                 }
-                response = fieldHolder.execute(null);
+                LinkedList<Object> args = new LinkedList<>();
+                args.add(id);
+                int response = (int) server.sendRequestAndGetResponse(new Request("update", args));
+                out = switch (response) {
+                    case 0 -> fieldHolder.execute(null);
+                    case 1 -> new Pair<>(0, "ID должен принадлежать элементу коллекции");
+                    default -> null;
+                };
             } catch (NumberFormatException e) {
-                response = new Pair<>(0, "ID должен принадлежать одному из элементов коллекции!\n");
+                out = new Pair<>(0, "ID должен быть числом, большим нуля!\n");
             }
-            return response;
+            catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            return out;
         }
-        response = fieldHolder.execute(arguments);
-        if (response.getLeft() == 0) {
+        out = fieldHolder.execute(arguments);
+        if (out.getLeft() == 0) {
             StudyGroup el = fieldHolder.getReadyEl();
             el.setId(Long.valueOf(id));
-            LinkedList<StudyGroup> collection = storage.getAllElements();
-            for(int i = 0; i < collection.size(); i++){
-                if(collection.get(i).getId().equals(Long.valueOf(id))){
-                    el.setCreationDate(collection.get(i).getCreationDate());
-                    storage.updElement(i, el);
-                }
+            int response;
+            try {
+                LinkedList<Object> args = new LinkedList<>();
+                args.add(el);
+                response = (int) server.sendRequestAndGetResponse(new Request("update", args));
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
-            response.setRight("Элемент успешно обновлен\n");
+            switch(response){
+                case 0: out.setRight("Элемент успешно добавлен\n"); break;
+                case 1: out.setRight("Номер паспорта должен быть уникальным!\n"); break;
+            }
+//            LinkedList<StudyGroup> collection = storage.getAllElements();
+//            for(int i = 0; i < collection.size(); i++){
+//                if(collection.get(i).getId().equals(Long.valueOf(id))){
+//                    el.setCreationDate(collection.get(i).getCreationDate());
+//                    storage.updElement(i, el);
+//                }
+//            }
             id = -1;
-            return response;
         }
-        return response;
+        return out;
     }
     @Override
     public void update() {
-        fieldHolder = new FieldHolder(new Validator(storage), new Parser());
+        fieldHolder = new FieldHolder(new Validator(), new Parser());
     }
 }

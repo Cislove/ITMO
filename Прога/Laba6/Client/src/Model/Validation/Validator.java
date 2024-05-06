@@ -1,10 +1,9 @@
 package Model.Validation;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.FormOfEducation;
-import Client.Model.Storage.StorageObject.Semester;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Storage.StorageObject.closedField;
+import Model.Storage.StorageObject.FormOfEducation;
+import Model.Storage.StorageObject.Semester;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.closedField;
 
 import java.time.LocalDate;
 
@@ -13,10 +12,6 @@ import java.time.LocalDate;
  * @author Ильнар Рахимов
  */
 public class Validator {
-    IStorage storage;
-    public Validator(IStorage storage){
-        this.storage = storage;
-    }
     /**
      * Валидация name
      * @return true - валидация прошла успешно, иначе исключение с причиной ошибки
@@ -122,9 +117,6 @@ public class Validator {
         nullChecker(id);
         if(id.length() < 9 || id.length() > 31){
             throw new ValidateException("Длина номера паспорта должна быть не менее 9 и не более 31\n");
-        }
-        if(storage.checkPassportId(id)){
-            throw new ValidateException("Номер паспорта должен быть уникальным!\n");
         }
         return true;
     }

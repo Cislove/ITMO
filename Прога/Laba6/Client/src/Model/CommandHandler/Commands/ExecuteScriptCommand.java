@@ -1,7 +1,7 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.CommandHandler.Switcher;
-import Client.Model.IODriver.IOHandler;
+import Model.CommandHandler.Switcher;
+import Model.IODriver.IOHandler;
 
 import java.io.IOException;
 import java.util.HashSet;

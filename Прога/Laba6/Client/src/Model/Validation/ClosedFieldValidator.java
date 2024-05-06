@@ -1,8 +1,8 @@
 package Model.Validation;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.StorageObject.StudyGroup;
-import Client.Model.Storage.StorageObject.closedField;
+import Model.Storage.IStorage;
+import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.closedField;
 
 import java.time.LocalDate;
 
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class ClosedFieldValidator extends Validator {
     IDHandler idHandler;
     public ClosedFieldValidator(IStorage storage, IDHandler idHandler) {
-        super(storage);
+        super();
         this.idHandler = idHandler;
     }
     /**
@@ -30,17 +30,6 @@ public class ClosedFieldValidator extends Validator {
         }
         catch (IDException e){
             throw new ValidateException("Данный ID уже занят\n");
-        }
-        return true;
-    }
-    /**
-     * Метод реализующий валидацию даты создания {@link StudyGroup}
-     * @return true - дата создания подходит под требования. Вызов исключения - не подходит под требования.
-     * Также в исключение содержится сообщение - в чем именно заключается проблема
-     */
-    public boolean StudyGroupCreationDateValidation(LocalDate creationDate)throws ValidateException {
-        if(creationDate == null){
-            throw new ValidateException("У группы отсутствует дата создания\n");
         }
         return true;
     }

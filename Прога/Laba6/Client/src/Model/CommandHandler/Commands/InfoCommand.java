@@ -1,23 +1,30 @@
 package Model.CommandHandler.Commands;
 
-import Client.Model.Storage.IStorage;
-import Client.Model.Storage.ObjectDescription.baseMetaData;
+import Model.NetworkLogic.Handler;
+import Model.RequestLogic.Request;
+import Model.Storage.ObjectDescription.baseMetaData;
+
+import java.io.IOException;
 
 /**
  * Класс реализации команды "info"
  * @author Ильнар Рахимов
  */
 public class InfoCommand implements Command {
-    IStorage storage;
-    public InfoCommand(IStorage storage){
-        this.storage = storage;
+    Handler server;
+    public InfoCommand(Handler server){
+        this.server = server;
     }
     public Pair<Integer, String> execute(){
-        baseMetaData data = storage.getmData();
-        String s = "Информация о коллекции:" + "\n";
-        s += "Дата инициализации - " + data.initDate + "\n";
-        s += "Тип коллекции - " + data.typeCollection + "\n";
-        s += "Размер коллекции - " + data.size + "\n";
-        return new Pair<>(0, s);
+        try {
+            baseMetaData data = (baseMetaData) server.sendRequestAndGetResponse(new Request("info", null));
+            String s = "Информация о коллекции:" + "\n";
+            s += "Дата инициализации - " + data.initDate + "\n";
+            s += "Тип коллекции - " + data.typeCollection + "\n";
+            s += "Размер коллекции - " + data.size + "\n";
+            return new Pair<>(0, s);
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

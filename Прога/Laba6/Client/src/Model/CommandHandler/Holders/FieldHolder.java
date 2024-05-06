@@ -1,10 +1,10 @@
 package Model.CommandHandler.Holders;
 
-import Client.Model.CommandHandler.Commands.Pair;
-import Client.Model.Validation.Parser;
-import Client.Model.Validation.ValidateException;
-import Client.Model.Validation.Validator;
-import Model.Storage.StorageObject.StudyGroup;
+import Model.CommandHandler.Commands.Pair;
+import Model.Storage.StorageObject.*;
+import Model.Validation.Parser;
+import Model.Validation.ValidateException;
+import Model.Validation.Validator;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

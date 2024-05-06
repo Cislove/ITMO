@@ -1,6 +1,6 @@
 package Model.Storage;
-import Client.Model.Storage.ObjectDescription.baseMetaData;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.ObjectDescription.baseMetaData;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 
@@ -21,6 +21,7 @@ public class Storage implements IStorage {
         mDATA = new baseMetaData("LinkedList");
         passportIds = new PassportIdStorage();
     }
+    @Override
     public int addElement(StudyGroup el){
         collection.add(el);
         if(el.getGroupAdmin() != null) {

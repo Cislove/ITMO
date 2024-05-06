@@ -1,11 +1,5 @@
 package Model.Storage.StorageObject;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-
 import java.time.LocalDate;
 
 /**
@@ -15,9 +9,6 @@ import java.time.LocalDate;
 
 public class Person implements Comparable<Person>{
     private String name; //Поле не может быть null, Строка не может быть пустой
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate birthday; //Поле не может быть null
     private Double height; //Поле не может быть null, Значение поля должно быть больше 0
     private Double weight; //Поле не может быть null, Значение поля должно быть больше 0

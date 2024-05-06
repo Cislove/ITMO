@@ -1,8 +1,7 @@
 package Model.Validation;
 
-import Client.Model.IODriver.XMLParser.ParseException;
-import Client.Model.Storage.StorageObject.FormOfEducation;
-import Client.Model.Storage.StorageObject.Semester;
+import Model.Storage.StorageObject.FormOfEducation;
+import Model.Storage.StorageObject.Semester;
 
 import java.time.LocalDate;
 import java.util.regex.Pattern;

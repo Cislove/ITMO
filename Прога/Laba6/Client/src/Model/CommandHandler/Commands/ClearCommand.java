@@ -14,10 +14,8 @@ import java.io.IOException;
  */
 public class ClearCommand implements Command {
     Handler server;
-    IDHandler idHandler;
-    public ClearCommand(Handler server, IDHandler idHandler){
+    public ClearCommand(Handler server){
         this.server = server;
-        this.idHandler = idHandler;
     }
     @Override
     public Pair<Integer, String> execute() {
@@ -26,7 +24,7 @@ public class ClearCommand implements Command {
             if(response == 1)
                 return new Pair<>(0, "Коллекция успешно очищена\n");
             else
-                return new Pair<>(response, "При очистке возникли непредвиденные проблемы\n");
+                return new Pair<>(0, "При очистке возникли непредвиденные проблемы\n");
         } catch (IOException | ClassNotFoundException e) {
             return new Pair<>(-1, e.getMessage());
         }

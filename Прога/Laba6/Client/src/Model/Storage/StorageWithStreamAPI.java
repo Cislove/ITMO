@@ -1,14 +1,14 @@
 package Model.Storage;
 
-import Client.Model.Storage.ObjectDescription.baseMetaData;
-import Client.Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.ObjectDescription.baseMetaData;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class StorageWithStreamAPI extends Storage implements IStorage {
+public class StorageWithStreamAPI extends Storage{
 
     @Override
     public int addElement(StudyGroup el) {

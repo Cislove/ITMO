@@ -1,12 +1,5 @@
 package Model.Storage.StorageObject;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-
 import java.time.LocalDate;
 
 /**
@@ -21,9 +14,6 @@ public class StudyGroup implements Comparable<StudyGroup>{
     @fieldWithCompoundInput
     private Coordinates coordinates; //Поле не может быть null
     @closedField
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long studentsCount; //Значение поля должно быть больше 0
     @enumType
@@ -34,7 +24,6 @@ public class StudyGroup implements Comparable<StudyGroup>{
     private Semester semesterEnum; //Поле может быть null
     @fieldWithCompoundInput
     @mayBeNull
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Person groupAdmin; //Поле может быть null
 
     public StudyGroup() {

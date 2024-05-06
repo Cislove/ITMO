@@ -27,11 +27,11 @@ public class Handler {
         server = serverFactory.initializeConnection(host, port, 5000);
     }
 
-    public Object getResponse() throws IOException, ClassNotFoundException {
+    private Object getResponse() throws IOException, ClassNotFoundException {
         byte[] arr = server.listenAndGetData();
         return deserializer.deserialize(arr).message;
     }
-    public void sendRequest(Request request) throws IOException {
+    private void sendRequest(Request request) throws IOException {
         byte[] arr = serializer.serialize(request);
         server.sendData(arr);
     }
