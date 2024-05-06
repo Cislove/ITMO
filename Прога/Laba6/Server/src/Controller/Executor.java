@@ -2,7 +2,9 @@ package Controller;
 
 import Model.CommandHandler.Commands.Pair;
 import Model.EntryBlock;
-import Server.View.Handler;
+import View.Handler;
+import View.RequestLogic.Request;
+import View.ResponseLogic.Response;
 
 import java.io.IOException;
 
@@ -22,11 +24,26 @@ public class Executor implements IExecutor {
      */
     @Override
     public void execute() {
-        Pair<Integer, String> response = model.start();
-        String request;
+        Pair<Integer, String> responseServer = model.start();
+        String requestServer;
+        Response responseClient;
+        Request requestClient;
         do {
-            request = view.update(response.getRight());
-            response = model.execute(request);
+            try {
+                requestServer = view.update(responseServer.getRight());
+                responseServer = model.execute(requestServer);
+            }
+            catch (Exception ignored) {
+
+            }
+            try{
+                requestClient = view.acceptClient();
+                responseClient = model.execute(requestClient);
+                view.sendClient(responseClient);
+            }
+            catch (Exception ignored) {
+
+            }
         } while (response.getLeft() != -1);
         view.send(response.getRight());
         System.exit(0);

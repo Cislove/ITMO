@@ -1,6 +1,6 @@
 package Model;
 
-import Model.CommandHandler.Commands.*;
+import Model.CommandHandler.Commands.OnServerCommands.*;
 import Model.CommandHandler.Switcher;
 import Model.IODriver.IOHandler;
 import Model.IODriver.Reader.Reader;
@@ -72,7 +72,7 @@ public class EntryBlock implements IModel{
      * @return строку - итоги работы метода
      */
     public Pair<Integer, String> start(){
-        String response = "Добро пожаловать в программу!!!\n";
+        String response = "Сервер запущен!!!\n";
         IStorage st = new StorageWithStreamAPI();
         Reader r = new Reader();
         Writter w = new Writter();

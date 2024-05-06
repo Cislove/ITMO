@@ -1,5 +1,6 @@
 package Model.Storage.StorageObject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -7,7 +8,7 @@ import java.time.LocalDate;
  * @author Ильнар Рахимов
  */
 
-public class StudyGroup implements Comparable<StudyGroup>{
+public class StudyGroup implements Comparable<StudyGroup>, Serializable {
     @closedField
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой

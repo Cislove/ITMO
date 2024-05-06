@@ -25,7 +25,7 @@ public class HeadCommand implements Command {
                 return new Pair<>(0, "Коллекция пустая\n");
             return new Pair<>(0, response.toString());
         } catch (IOException | ClassNotFoundException e) {
-            return new Pair<>(-0, "Возникли непредвиденные проблемы, пожалуйста попробуйте позже\n");
+            return new Pair<>(-1, "Сервер временно не доступен!\n");
         }
     }
 }

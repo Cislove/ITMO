@@ -6,12 +6,7 @@ import Model.IODriver.IOHandler;
 import Model.IODriver.Reader.Reader;
 import Model.IODriver.Writter.Writter;
 import Model.NetworkLogic.Handler;
-import Model.Storage.IStorage;
-import Model.Storage.StorageObject.StudyGroup;
-import Model.Storage.StorageWithStreamAPI;
-import Model.Validation.ClosedFieldValidator;
-import Model.Validation.IDHandler;
-import Model.Validation.ValidateException;
+import Model.RequestLogic.Request;
 
 import java.io.IOException;
 import java.net.SocketException;
@@ -24,6 +19,7 @@ import java.net.UnknownHostException;
  */
 public class EntryBlock implements IModel {
     Switcher commandHandler;
+    Handler server;
     /**
      * Метод реализующий исполнение класса
      * @return ответ модели
@@ -33,18 +29,31 @@ public class EntryBlock implements IModel {
         response = commandHandler.execute(request);
         return response;
     }
+    public Pair<Integer, String> startWelcome(){
+        String response = "Загрузка программы\n";
+        return new Pair<>(0, response);
+    }
+    public Pair<Integer, String> startServer(){
+        int status = 1;
+        StringBuilder response = new StringBuilder();
+        Handler server = new Handler();
+        try {
+            server.setServer("localhost", 6597);
+            String res = (String) server.sendRequestAndGetResponse(new Request("", null));
+            if(res.isEmpty()){
+                response.append("Соединение установлено\n");
+                status = 0;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            response.append("Ошибка\n");
+        }
+        return new Pair<>(status, response.toString());
+    }
     /**
      * Метод реализующий подготовку модели к работе
      * @return строку - итоги работы метода
      */
     public Pair<Integer, String> start(){
-        String response = "Добро пожаловать в программу!!!\n";
-        Handler server = new Handler();
-        try {
-            server.setServer("localhost", 6597);
-        } catch (SocketException | UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
         Reader r = new Reader();
         Writter w = new Writter();
         //IDHandler idHandler = new IDHandler();
@@ -99,6 +108,6 @@ public class EntryBlock implements IModel {
         commandHandler.ArgumentCommandsRegister("add_if_min", addIfMin);
         commandHandler.ArgumentCommandsRegister("filter_contains_name", filterContainsName);
         //response += writeList(st, ioHandler, idHandler);
-        return new Pair<>(0, response);
+        return new Pair<>(0, "Загрузка прошла успешна, добро пожаловать в программу!\n");
     }
 }

@@ -16,7 +16,20 @@ public class Executor implements IExecutor {
      */
     @Override
     public void execute() {
-        Pair<Integer, String> response = model.start();
+        int numberOfConnectionAttempts = 1;
+        view.send(model.startWelcome().getRight() + "Попытка установления соединения " + numberOfConnectionAttempts + "\n");
+        Pair<Integer, String> response = model.startServer();
+        while (response.getLeft() != 0 && numberOfConnectionAttempts < 3){
+            numberOfConnectionAttempts++;
+            view.send(response.getRight() + "Попытка установления соединения " + numberOfConnectionAttempts + "\n");
+            response = model.startServer();
+        }
+        view.send(response.getRight());
+        if(response.getLeft() != 0){
+            view.send("В настоящее время сервер не доступен\n");
+            System.exit(0);
+        }
+        response = model.start();
         String request;
         do {
             request = view.update(response.getRight());

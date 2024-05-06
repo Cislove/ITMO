@@ -1,10 +1,12 @@
 package Model.Storage.StorageObject;
 
+import java.io.Serializable;
+
 /**
  * Enum характеризующий тип семестра
  * @author Ильнар Рахимов
  */
-public enum Semester {
+public enum Semester implements Serializable {
     THIRD("трехмесячный"),
     FIFTH("пятимесячный"),
     SIXTH("шестимесячный"),

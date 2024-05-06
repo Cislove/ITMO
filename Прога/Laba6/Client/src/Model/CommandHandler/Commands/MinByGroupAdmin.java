@@ -24,7 +24,7 @@ public class MinByGroupAdmin implements Command {
             }
             return new Pair<>(0, inst.toString());
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            return new Pair<>(-1, "Сервер временно не доступен!\n");
         }
     }
 }

@@ -26,7 +26,7 @@ public class ClearCommand implements Command {
             else
                 return new Pair<>(0, "При очистке возникли непредвиденные проблемы\n");
         } catch (IOException | ClassNotFoundException e) {
-            return new Pair<>(-1, e.getMessage());
+            return new Pair<>(-1, "Сервер временно не доступен!\n");
         }
     }
 }

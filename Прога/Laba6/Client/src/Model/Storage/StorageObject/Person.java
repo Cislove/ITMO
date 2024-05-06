@@ -1,5 +1,6 @@
 package Model.Storage.StorageObject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -7,7 +8,7 @@ import java.time.LocalDate;
  * @author Ильнар Рахимов
  */
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person>, Serializable {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private LocalDate birthday; //Поле не может быть null
     private Double height; //Поле не может быть null, Значение поля должно быть больше 0

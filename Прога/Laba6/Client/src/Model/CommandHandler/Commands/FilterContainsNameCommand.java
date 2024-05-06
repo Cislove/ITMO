@@ -34,7 +34,7 @@ public class FilterContainsNameCommand implements ArgumentCommand {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            return new Pair<>(-1, "Сервер временно не доступен!\n");
         }
         return new Pair<>(0, out.toString());
     }

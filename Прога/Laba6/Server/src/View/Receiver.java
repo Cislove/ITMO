@@ -1,9 +1,16 @@
 package View;
 
+import View.NetworkLogic.ChanelClientConnectionFactory;
+import View.NetworkLogic.ClientConnection;
+import View.NetworkLogic.ClientConnectionFactory;
+import View.RequestLogic.ByteSerializer;
+import View.RequestLogic.Request;
+import View.RequestLogic.Serializer;
+import View.ResponseLogic.ByteDeserializer;
+import View.ResponseLogic.Deserializer;
+import View.ResponseLogic.Response;
+
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -13,28 +20,25 @@ import java.util.Scanner;
  * @author Ильнар Рахимов
  */
 public class Receiver implements acceptable {
-    DatagramChannel dc;
-    InetSocketAddress addr;
-    ByteBuffer buffer;
+    ClientConnection client;
+    Serializer<byte[]> serializer;
+    Deserializer<byte[]> deserializer;
     private final Scanner scn = new Scanner(System.in);
     /**
      * Функция считывания запросов пользователя
      * @return строку - запрос
      */
-    public Receiver(int port) throws IOException {
-        addr = new InetSocketAddress(port);
-        buffer = ByteBuffer.allocate(1000000);
-        dc.bind(addr);
-    }
-    public void setPort(int port) throws IOException {
-        addr = new InetSocketAddress(port);
-        dc.bind(addr);
+    public Receiver(ClientConnection client) throws IOException {
+        this.client = client;
+        deserializer = new ByteDeserializer();
     }
     @Override
-    public String consoleIn() {
+    public String consoleIn() throws IOException {
         String str = "";
         try {
-            str = scn.nextLine();
+            if(System.in.available() > 0){
+                str = scn.nextLine();
+            }
         }
         catch (NoSuchElementException e){
             System.out.println("Завершение работы");
@@ -42,29 +46,8 @@ public class Receiver implements acceptable {
         }
         return str;
     }
-    public Packet clientIn() throws IOException {
-        SocketAddress sa = dc.receive(buffer);
-        return new Packet(buffer.array(), sa);
-    }
-    public void OpenChannel() throws IOException {
-        try{
-            dc = DatagramChannel.open();
-        }
-        catch (IOException e){
-            try {
-                dc.close();
-            } catch (IOException ex) {
-                throw new IOException(ex);
-            }
-            throw new IOException(e);
-        }
-    }
-    public void CloseChannel() throws IOException {
-        try {
-            dc.close();
-        }
-        catch (IOException ex) {
-            throw new IOException(ex);
-        }
+    public Request getRequest() throws IOException, ClassNotFoundException {
+        byte[] arr = client.listenAndGetData();
+        return deserializer.deserialize(arr);
     }
 }

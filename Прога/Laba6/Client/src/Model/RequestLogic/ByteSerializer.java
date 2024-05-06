@@ -3,7 +3,6 @@ package Model.RequestLogic;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.stream.IntStream;
 
 public class ByteSerializer implements Serializer<byte[]> {
     @Override
