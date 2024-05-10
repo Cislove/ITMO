@@ -1,16 +1,11 @@
 package View;
 
-import View.NetworkLogic.ClientConnection;
-import View.NetworkLogic.ClientConnectionFactory;
-import View.RequestLogic.ByteSerializer;
-import View.RequestLogic.Serializer;
-import View.ResponseLogic.Deserializer;
-import View.ResponseLogic.Response;
+import Model.NetworkLogic.ClientConnection;
+import Model.RequestLogic.ByteSerializer;
+import Model.RequestLogic.Serializer;
+import Model.ResponseLogic.Response;
 
 import java.io.IOException;
-import java.net.SocketAddress;
-import java.nio.ByteBuffer;
-import java.nio.channels.DatagramChannel;
 
 /**
  * Класс описывающий передатчик ответов пользователю. Имеет полный функционал для превращения готового ответа в необходимый вид

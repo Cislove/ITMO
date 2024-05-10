@@ -1,5 +1,6 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
+import Model.CommandHandler.Commands.Pair;
 import Model.IODriver.IOHandler;
 import Model.IODriver.XMLConverter.XMLCollection;
 import Model.Storage.IStorage;
@@ -15,7 +16,7 @@ public class SaveCommand implements Command{
     public SaveCommand(IStorage storage, IOHandler ioHandler){
         this.storage = storage;
         this.ioHandler = ioHandler;
-        nameFile = "Server.Main.xml";
+        nameFile = "Main.xml";
     }
     @Override
     public Pair<Integer, String> execute() {

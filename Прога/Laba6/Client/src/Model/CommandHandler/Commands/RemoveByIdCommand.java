@@ -36,9 +36,6 @@ public class RemoveByIdCommand implements ArgumentCommand {
                 case 1:
                     out.setRight("ID должен принадлежать элементу коллекции\n");
                     break;
-                case 2:
-                    out.setRight("Коллекция и так пуста\n");
-                    break;
             }
         }
         catch (NumberFormatException e){

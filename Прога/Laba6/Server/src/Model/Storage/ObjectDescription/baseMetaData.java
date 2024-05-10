@@ -1,6 +1,7 @@
 package Model.Storage.ObjectDescription;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -8,7 +9,7 @@ import java.util.LinkedList;
  * Класс описывающий базовые метаданные коллекции
  * @author Ильнар Рахимов
  */
-public class baseMetaData {
+public class baseMetaData implements Serializable {
     public Date initDate;
     public String typeCollection;
     public int size;

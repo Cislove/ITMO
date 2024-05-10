@@ -1,11 +1,11 @@
 package View;
 
 
-import View.NetworkLogic.ChanelClientConnectionFactory;
-import View.NetworkLogic.ClientConnection;
-import View.NetworkLogic.ClientConnectionFactory;
-import View.RequestLogic.Request;
-import View.ResponseLogic.Response;
+import Model.NetworkLogic.ChanelClientConnectionFactory;
+import Model.NetworkLogic.ClientConnection;
+import Model.NetworkLogic.ClientConnectionFactory;
+import Model.RequestLogic.Request;
+import Model.ResponseLogic.Response;
 
 import java.io.*;
 
@@ -33,6 +33,7 @@ public class Handler {
      */
     public String update(String str) throws IOException {
         res.ConsolePrint(str);
+        //System.out.println(rec.consoleIn().isEmpty());
         return rec.consoleIn();
     }
     /**
@@ -40,6 +41,9 @@ public class Handler {
      */
     public void send(String str){
         res.ConsolePrint(str);
+    }
+    public String read() throws IOException {
+        return rec.consoleIn();
     }
     public Request acceptClient() throws IOException, ClassNotFoundException {
         return rec.getRequest();

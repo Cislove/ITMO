@@ -1,5 +1,6 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
+import Model.CommandHandler.Commands.Pair;
 import Model.CommandHandler.Holders.ClosedFieldsHolder;
 import Model.CommandHandler.Holders.FieldHolder;
 import Model.Storage.IStorage;

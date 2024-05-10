@@ -1,17 +1,12 @@
 package View;
 
-import View.NetworkLogic.ChanelClientConnectionFactory;
-import View.NetworkLogic.ClientConnection;
-import View.NetworkLogic.ClientConnectionFactory;
-import View.RequestLogic.ByteSerializer;
-import View.RequestLogic.Request;
-import View.RequestLogic.Serializer;
-import View.ResponseLogic.ByteDeserializer;
-import View.ResponseLogic.Deserializer;
-import View.ResponseLogic.Response;
+import Model.NetworkLogic.ClientConnection;
+import Model.RequestLogic.Request;
+import Model.RequestLogic.Serializer;
+import Model.ResponseLogic.ByteDeserializer;
+import Model.ResponseLogic.Deserializer;
 
 import java.io.IOException;
-import java.nio.channels.DatagramChannel;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -34,7 +29,7 @@ public class Receiver implements acceptable {
     }
     @Override
     public String consoleIn() throws IOException {
-        String str = "";
+        String str = null;
         try {
             if(System.in.available() > 0){
                 str = scn.nextLine();

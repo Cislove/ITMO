@@ -20,7 +20,7 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
             super.collection.add(el);
             return 0;
         }
-        return -1;
+        return 1;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
             super.collection.set(id, el);
             return 0;
         }
-        return -1;
+        return 1;
     }
 
     @Override

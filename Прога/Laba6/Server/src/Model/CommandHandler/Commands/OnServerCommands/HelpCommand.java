@@ -1,5 +1,7 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
+import Model.CommandHandler.Commands.Pair;
+
 /**
  * Класс реализации команды "help"
  * @author Ильнар Рахимов

@@ -36,11 +36,12 @@ public class EntryBlock implements IModel {
     public Pair<Integer, String> startServer(){
         int status = 1;
         StringBuilder response = new StringBuilder();
-        Handler server = new Handler();
+        server = new Handler();
         try {
             server.setServer("localhost", 6597);
             String res = (String) server.sendRequestAndGetResponse(new Request("", null));
-            if(res.isEmpty()){
+            //System.out.println(res);
+            if(res.equals("")){
                 response.append("Соединение установлено\n");
                 status = 0;
             }

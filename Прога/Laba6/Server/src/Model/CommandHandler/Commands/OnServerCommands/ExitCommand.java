@@ -1,5 +1,7 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
+import Model.CommandHandler.Commands.Pair;
+
 /**
  * Класс реализации команды "exit"
  * @author Ильнар Рахимов

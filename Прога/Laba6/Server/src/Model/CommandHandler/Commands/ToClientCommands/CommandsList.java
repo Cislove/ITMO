@@ -1,5 +1,7 @@
 package Model.CommandHandler.Commands.ToClientCommands;
 
+import Model.CommandHandler.Commands.Pair;
+
 import java.util.ArrayList;
 
 /**

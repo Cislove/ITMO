@@ -1,5 +1,7 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
+import Model.CommandHandler.Commands.Pair;
+
 import java.util.ArrayList;
 
 /**

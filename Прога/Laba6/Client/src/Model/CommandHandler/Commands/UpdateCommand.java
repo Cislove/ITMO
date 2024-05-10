@@ -21,6 +21,7 @@ public class UpdateCommand implements ArgumentCommand {
 
     public UpdateCommand(Handler server){
         fieldHolder = new FieldHolder(new Validator(), new Parser());
+        this.server = server;
         id = -1;
     }
     @Override

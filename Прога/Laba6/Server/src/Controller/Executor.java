@@ -3,8 +3,8 @@ package Controller;
 import Model.CommandHandler.Commands.Pair;
 import Model.EntryBlock;
 import View.Handler;
-import View.RequestLogic.Request;
-import View.ResponseLogic.Response;
+import Model.RequestLogic.Request;
+import Model.ResponseLogic.Response;
 
 import java.io.IOException;
 
@@ -25,27 +25,47 @@ public class Executor implements IExecutor {
     @Override
     public void execute() {
         Pair<Integer, String> responseServer = model.start();
-        String requestServer;
+        view.send(responseServer.getRight());
+        String requestServer = null;
         Response responseClient;
         Request requestClient;
         do {
             try {
-                requestServer = view.update(responseServer.getRight());
-                responseServer = model.execute(requestServer);
+                requestServer = view.read();
+                if(requestServer != null){
+                    responseServer = model.execute(requestServer);
+                    view.send(responseServer.getRight());
+                }
             }
-            catch (Exception ignored) {
+            catch (IOException ignored) {
+                try {
+                    requestClient = view.acceptClient();
+                    if (requestClient != null) {
+                        responseClient = model.executeServer(requestClient);
+                        view.sendClient(responseClient);
+                    }
+                }
+                catch (Exception ign) {
 
+                }
             }
             try{
+                //System.out.println("Client accepted");
                 requestClient = view.acceptClient();
-                responseClient = model.execute(requestClient);
-                view.sendClient(responseClient);
+                //System.out.println("Client accepted");
+                if(requestClient != null){
+                    //System.out.println((String)requestClient.command);
+                    responseClient = model.executeServer(requestClient);
+                    //System.out.println((int) responseClient.message);
+                    view.sendClient(responseClient);
+                    requestClient = null;
+                }
             }
             catch (Exception ignored) {
 
             }
-        } while (response.getLeft() != -1);
-        view.send(response.getRight());
+        } while (responseServer.getLeft() != -1);
+        view.send(responseServer.getRight());
         System.exit(0);
     }
 }

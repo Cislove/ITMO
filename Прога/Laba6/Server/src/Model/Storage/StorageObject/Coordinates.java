@@ -1,11 +1,13 @@
 
 package Model.Storage.StorageObject;
 
+import java.io.Serializable;
+
 /**
  * Класс описывающий положение объекта на плоскости(его координаты)
  * @author Ильнар Рахимов
  */
-public class Coordinates {
+public class Coordinates implements Serializable {
     private Float xCord; //Значение поля должно быть больше -407, Поле не может быть null
     private Float yCord; //Поле не может быть null
 
