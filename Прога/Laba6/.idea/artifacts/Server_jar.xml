@@ -10,6 +10,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/stax2-api-4.2.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/woodstox-core-6.5.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jackson-datatype-jsr310-2.15.2.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/Server_jar/Main.xml" />
     </root>
   </artifact>
 </component>

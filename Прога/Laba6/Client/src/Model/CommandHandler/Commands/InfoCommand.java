@@ -24,8 +24,7 @@ public class InfoCommand implements Command {
             s += "Размер коллекции - " + data.size + "\n";
             return new Pair<>(0, s);
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-            //return new Pair<>(-1, "Сервер временно не доступен!\n");
+            return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
         }
     }
 }

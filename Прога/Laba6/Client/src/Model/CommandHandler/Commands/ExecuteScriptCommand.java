@@ -29,6 +29,7 @@ public class ExecuteScriptCommand implements ArgumentCommand {
     @Override
     public Pair<Integer, String> execute(String arguments){
         if(runningScripts.contains(arguments)){
+            runningScripts.clear();
             return new Pair<>(3, "!!!Ошибка выполнения скрипта: Скрипт остановлен на моменте вызова бесконечной рекурсии\n");
         }
         runningScripts.add(arguments);
@@ -40,12 +41,13 @@ public class ExecuteScriptCommand implements ArgumentCommand {
             return new Pair<>(0, e.getMessage());
         }
         StringBuilder response = new StringBuilder().append("Запуск скрипта ").append(arguments).append("\n");
-        if(runningScripts.size() == 1 && flag){
+        if(runningScripts.size() > 1 && flag){
             flag = false;
             response.insert(0, "!!!Внимание в скрипте присутствует рекурсивный вызов других скриптов\n");
         }
         for(int i = 0; i < script.length; i++){
             Pair<Integer, String> res = switcher.execute(script[i]);
+            //System.out.println(script[i]);
             if(res.getLeft() == 2){
                 response.append("!!!Внимание, ошибка в строке ").append(i).append(": ");
                 switcher.setOperationMode(0);

@@ -1,0 +1,4 @@
+filter_contains_name P3119
+show
+info
+execute_script C:\Users\vim15\Desktop\ITMO\Прога\Laba6\Client\script2

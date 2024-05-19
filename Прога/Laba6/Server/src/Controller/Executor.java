@@ -66,6 +66,7 @@ public class Executor implements IExecutor {
             }
         } while (responseServer.getLeft() != -1);
         view.send(responseServer.getRight());
+        model.execute("save");
         System.exit(0);
     }
 }

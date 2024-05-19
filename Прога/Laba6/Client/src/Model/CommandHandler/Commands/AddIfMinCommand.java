@@ -39,7 +39,7 @@ public class AddIfMinCommand implements ArgumentCommand {
                     case 2: out.setRight("В коллекции есть меньший элемент\n"); break;
                 }
             } catch (IOException | ClassNotFoundException e) {
-                return new Pair<>(-1, "Сервер временно не доступен!\n");
+                return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
             }
         }
         return out;

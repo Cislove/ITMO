@@ -29,7 +29,7 @@ public class GroupCountingByidCommand implements Command {
             }
             return new Pair<>(0, response.toString());
         } catch (IOException | ClassNotFoundException e) {
-            return new Pair<>(-1, "Сервер временно не доступен!\n");
+            return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
         }
     }
 }

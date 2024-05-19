@@ -46,7 +46,7 @@ public class AddCommand implements ArgumentCommand {
                     case 1: out.setRight("Номер паспорта должен быть уникальным!\n"); break;
                 }
             } catch (IOException | ClassNotFoundException e) {
-                return new Pair<>(-1, "Сервер временно не доступен!\n");
+                return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
             }
         }
         return out;

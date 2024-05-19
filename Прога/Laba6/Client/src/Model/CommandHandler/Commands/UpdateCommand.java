@@ -60,7 +60,7 @@ public class UpdateCommand implements ArgumentCommand {
                 args.add(el);
                 response = (int) server.sendRequestAndGetResponse(new Request("update", args));
             } catch (IOException | ClassNotFoundException e) {
-                return new Pair<>(-1, "Сервер временно не доступен!\n");
+                return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
             }
             switch(response){
                 case 0: out.setRight("Элемент успешно добавлен\n"); break;

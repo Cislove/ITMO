@@ -24,7 +24,7 @@ public class FilterContainsNameCommand implements ArgumentCommand {
         try {
             LinkedList<Object> args = new LinkedList<>();
             args.add(arguments);
-            List<StudyGroup> response = (LinkedList<StudyGroup>) server.sendRequestAndGetResponse(new Request("add_if_min", args));
+            List<StudyGroup> response = (LinkedList<StudyGroup>) server.sendRequestAndGetResponse(new Request("filter_contains_name", args));
             if(response.isEmpty()){
                 out.append("Таких элементов нет\n");
             }
@@ -34,7 +34,7 @@ public class FilterContainsNameCommand implements ArgumentCommand {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            return new Pair<>(-1, "Сервер временно не доступен!\n");
+            return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
         }
         return new Pair<>(0, out.toString());
     }

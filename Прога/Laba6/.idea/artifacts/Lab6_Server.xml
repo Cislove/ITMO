@@ -1,6 +1,8 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="Lab6_Server">
     <output-path>$PROJECT_DIR$/out/artifacts/Lab6_Server</output-path>
-    <root id="archive" name="Lab6_Server.jar" />
+    <root id="archive" name="Lab6_Server.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/Server_jar/Main.xml" />
+    </root>
   </artifact>
 </component>
