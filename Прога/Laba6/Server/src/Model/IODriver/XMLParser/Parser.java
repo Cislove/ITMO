@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс парсер XML файла в {@link XMLCollection}
  * @author Ильнар Рахимов
@@ -23,6 +25,7 @@ public class Parser {
             mapper.registerModule(new JavaTimeModule());
             return mapper.readValue(xml, XMLCollection.class);
         } catch (JsonProcessingException e) {
+            logger.warning("Ошибка при парсинге: " + e.getMessage());
             return null;
         }
     }

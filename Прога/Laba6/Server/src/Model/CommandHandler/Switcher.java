@@ -8,6 +8,8 @@ import Model.CommandHandler.Commands.Pair;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс обработчик запросов пользователя. Считывает запросы и вызывает исполнение нужных команд
  * @author Ильнар Рахимов
@@ -36,6 +38,7 @@ public class Switcher {
                 command = request;
                 arguments = "";
             }
+            logger.info("Вызов команды: " + command);
             if(argumentCommandMap.get(command) != null){
                 lastCommands.add(command);
                 if(arguments.isEmpty()){

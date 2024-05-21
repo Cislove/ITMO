@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс описывающий приемник запросов пользователя. Имеет полный функционал для превращения запроса в необходимый вид
  * @author Ильнар Рахимов
@@ -36,6 +38,8 @@ public class Receiver implements acceptable {
             }
         }
         catch (NoSuchElementException e){
+            logger.warning(e.getMessage());
+            logger.info("Завершение работы сервера");
             System.out.println("Завершение работы");
             System.exit(0);
         }

@@ -17,6 +17,9 @@ public class removeFirstCommand implements Command{
     }
     @Override
     public Pair<Integer, String> execute(){
+        if(storage.getElement(0) == null){
+            return new Pair<>(0, "Коллекция и так пуста\n");
+        }
         idHandler.openID(Math.toIntExact(storage.getElement(0).getId()));
         storage.delElement(0);
         return new Pair<>(0, "Первый элемент успешно удален!\n");

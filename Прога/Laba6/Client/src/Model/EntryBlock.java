@@ -33,12 +33,12 @@ public class EntryBlock implements IModel {
         String response = "Загрузка программы\n";
         return new Pair<>(0, response);
     }
-    public Pair<Integer, String> startServer(){
+    public Pair<Integer, String> startServer(int port){
         int status = 1;
         StringBuilder response = new StringBuilder();
         server = new Handler();
         try {
-            server.setServer("localhost", 6597);
+            server.setServer("localhost", port);
             String res = (String) server.sendRequestAndGetResponse(new Request("", null));
             //System.out.println(res);
             if(res.equals("")){

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс для чтения файлов
  * @author Ильнар Рахимов
@@ -18,6 +20,7 @@ public class Reader{
             }
         }
         catch (IOException | NullPointerException e){
+            logger.warning("Ошибка чтения с файла: " + e.getMessage());
             return null;
         }
         return file.toString();

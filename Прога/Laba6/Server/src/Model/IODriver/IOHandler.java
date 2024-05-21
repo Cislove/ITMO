@@ -8,6 +8,8 @@ import Model.IODriver.XMLParser.Parser;
 
 import java.io.IOException;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс обработчик взаимодействий с файлами
  * @author Ильнар Рахимов

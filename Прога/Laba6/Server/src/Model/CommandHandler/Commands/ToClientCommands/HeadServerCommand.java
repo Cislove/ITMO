@@ -16,6 +16,10 @@ public class HeadServerCommand implements ServerCommand {
 
     @Override
     public Pair<Integer, Response> execute(){
+        System.out.println(storage.getElement(0));
+        if(storage.getElement(0) == null){
+            return new Pair<>(0, new Response(null));
+        }
         return new Pair<>(0, new Response(storage.getElement(0)));
     }
 }

@@ -1,0 +1,117 @@
+мая 20, 2024 7:57:21 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 20, 2024 7:57:21 PM Model.EntryBlock start
+INFO: Сервер запущен
+мая 20, 2024 7:57:22 PM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 20, 2024 7:57:22 PM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 20, 2024 7:57:22 PM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 20, 2024 7:57:23 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /172.28.30.38:63363
+мая 20, 2024 7:57:23 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 20, 2024 7:57:23 PM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 20, 2024 7:57:23 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/172.28.30.38:63363
+мая 20, 2024 7:57:33 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /172.28.30.38:63363
+мая 20, 2024 7:57:33 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: add
+мая 20, 2024 7:57:33 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: Характеристики группы: 
+  ID 1
+  Название P3112
+  Координаты: 
+		по оси X 12.0
+		по оси Y 13.0
+  Дата создания 2024-05-20
+  Количество студентов 14
+
+мая 20, 2024 7:57:33 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: Характеристики группы: 
+  ID 1
+  Название P3112
+  Координаты: 
+		по оси X 12.0
+		по оси Y 13.0
+  Дата создания 2024-05-20
+  Количество студентов 14
+
+мая 20, 2024 7:57:33 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/172.28.30.38:63363
+мая 20, 2024 7:57:34 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /172.28.30.38:63363
+мая 20, 2024 7:57:34 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: show
+мая 20, 2024 7:57:34 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/172.28.30.38:63363
+мая 20, 2024 7:58:50 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 20, 2024 7:58:50 PM Model.EntryBlock start
+INFO: Сервер запущен
+мая 20, 2024 7:58:51 PM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 20, 2024 7:58:51 PM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 20, 2024 7:58:51 PM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 20, 2024 7:58:52 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /172.28.30.38:63365
+мая 20, 2024 7:58:52 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 20, 2024 7:58:52 PM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 20, 2024 7:58:52 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/172.28.30.38:63365
+мая 20, 2024 7:58:54 PM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 20, 2024 7:59:03 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: Характеристики группы: 
+  ID 1
+  Название P3112
+  Координаты: 
+		по оси X 12.0
+		по оси Y 13.0
+  Дата создания 2024-05-20
+  Количество студентов 14
+
+мая 20, 2024 7:59:04 PM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 20, 2024 10:57:03 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 20, 2024 10:57:03 PM Model.EntryBlock start
+INFO: Сервер запущен
+мая 20, 2024 10:57:03 PM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 20, 2024 10:57:03 PM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 20, 2024 10:57:03 PM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 20, 2024 10:57:06 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.100:63561
+мая 20, 2024 10:57:06 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 20, 2024 10:57:06 PM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 20, 2024 10:57:06 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.100:63561
+мая 20, 2024 10:57:19 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.100:63561
+мая 20, 2024 10:57:19 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: add
+мая 20, 2024 10:57:19 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 20, 2024 10:57:19 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.100:63561
+мая 20, 2024 10:57:20 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.100:63561
+мая 20, 2024 10:57:20 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: show
+мая 20, 2024 10:57:20 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.100:63561

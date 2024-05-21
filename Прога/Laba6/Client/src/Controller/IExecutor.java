@@ -8,5 +8,5 @@ public interface IExecutor {
     /**
      * Метод отвечающий за исполнение программы
      */
-    void execute();
+    void execute(int port);
 }

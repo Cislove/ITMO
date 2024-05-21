@@ -39,7 +39,7 @@ public class UpdateCommand implements ArgumentCommand {
                 int response = (int) server.sendRequestAndGetResponse(new Request("update", args));
                 out = switch (response) {
                     case 0 -> fieldHolder.execute(null);
-                    case 1 -> new Pair<>(0, "ID должен принадлежать элементу коллекции");
+                    case 1 -> new Pair<>(0, "ID должен принадлежать элементу коллекции\n");
                     default -> null;
                 };
             } catch (NumberFormatException e) {
@@ -60,7 +60,7 @@ public class UpdateCommand implements ArgumentCommand {
                 args.add(el);
                 response = (int) server.sendRequestAndGetResponse(new Request("update", args));
             } catch (IOException | ClassNotFoundException e) {
-                return new Pair<>(0, "Сервер временно не доступен!\n Попробуйте позже\n");
+                return new Pair<>(0, "Сервер временно не доступен!\nПопробуйте позже\n");
             }
             switch(response){
                 case 0: out.setRight("Элемент успешно добавлен\n"); break;

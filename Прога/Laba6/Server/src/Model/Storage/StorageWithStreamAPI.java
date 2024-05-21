@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static Logger.MyLogger.logger;
+
 public class StorageWithStreamAPI extends Storage implements IStorage{
 
     @Override
@@ -18,14 +20,17 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
                         !Objects.equals(x.getGroupAdmin().getPassportID(), el.getGroupAdmin().getPassportID())).toList();
         if(promt.size() == super.collection.size()){
             super.collection.add(el);
+            logger.info("Добавление элемента в коллекцию: ");
             return 0;
         }
+        logger.info("Добавляемый элемент не соответствует формату: ");
         return 1;
     }
 
     @Override
     public int delElement(int id) {
         if(super.collection.remove(id) != null){
+            logger.info("Удаление элемента из коллекции: " + collection.get(id));
             return 0;
         }
         return -1;
@@ -38,6 +43,7 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
                         el.getGroupAdmin() == null ||
                         !Objects.equals(x.getGroupAdmin().getPassportID(), el.getGroupAdmin().getPassportID())).toList();
         if(promt.size() >= (super.collection.size() - 1)){
+            logger.info("Обновление элемента коллекции\n Старый: " + collection.get(id) + "Новый: " + el);
             super.collection.set(id, el);
             return 0;
         }
@@ -46,7 +52,12 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
 
     @Override
     public StudyGroup getElement(int id) {
-        return super.collection.get(id);
+        try{
+            return super.collection.get(id);
+        }
+        catch(Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -56,6 +67,7 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
 
     @Override
     public int clear() {
+        logger.info("Очистка коллекции");
         super.collection.clear();
         return 0;
     }
@@ -67,11 +79,23 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
 
     @Override
     public void setmData(baseMetaData mDATA) {
+        logger.info("Смена метаданных\n" +
+                "Старые:" +
+                "Информация о коллекции:" + "\n" +
+                "Дата инициализации - " + mDATA.initDate + "\n" +
+                "Тип коллекции - " + mDATA.typeCollection + "\n" +
+                "Размер коллекции - " + mDATA.size + "\n" +
+                "Новые:" +
+                "Информация о коллекции:" + "\n" +
+                "Дата инициализации - " + mDATA.initDate + "\n" +
+                "Тип коллекции - " + mDATA.typeCollection + "\n" +
+                "Размер коллекции - " + mDATA.size + "\n");
         super.setmData(mDATA);
     }
 
     @Override
     public void setCollection(LinkedList<StudyGroup> list) {
+        logger.info("Инициализация новой коллекции");
         super.setCollection(list);
     }
 

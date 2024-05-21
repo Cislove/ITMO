@@ -1,5 +1,7 @@
 package Model;
 
+import static Logger.MyLogger.logger;
+
 import Model.CommandHandler.Commands.OnServerCommands.*;
 import Model.CommandHandler.Commands.OnServerCommands.CommandsList;
 import Model.CommandHandler.Commands.OnServerCommands.MinByGroupAdmin;
@@ -21,6 +23,7 @@ import Model.RequestLogic.Request;
 import Model.ResponseLogic.Response;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 /**
  * Класс описывающий связующий блок между моделью и контроллер.
@@ -74,11 +77,13 @@ public class EntryBlock implements IModel{
             st.setmData(collection.getmDATA());
         }
         catch (ValidateException | NullPointerException e){
+            logger.warning("Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage());
             return "Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage();
         }
         catch (IOException e){
-            return "Ошибка загрузки данных из файла: " + e.getMessage();
+            logger.info("Ошибка загрузки данных из файла: " + e.getMessage());
         }
+        logger.info("Загрузка коллекции из файла прошла успешно");
         return "Данные из файла успешно загружены\n";
     }
     /**
@@ -87,6 +92,7 @@ public class EntryBlock implements IModel{
      */
     public Pair<Integer, String> start(){
         String response = "Сервер запущен!!!\n";
+        logger.info("Сервер запущен");
         IStorage st = new StorageWithStreamAPI();
         Reader r = new Reader();
         Writter w = new Writter();

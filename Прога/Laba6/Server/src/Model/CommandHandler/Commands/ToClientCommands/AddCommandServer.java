@@ -30,7 +30,7 @@ public class AddCommandServer implements ServerArgumentCommand {
     public Pair<Integer, Response> execute(List<Object> arguments){
         StudyGroup el = (StudyGroup) arguments.get(0);
         closedFieldsHolder.setFields(el);
-        storage.addElement(el);
+        //storage.addElement(el);
         return new Pair<>(0, new Response(storage.addElement(el)));
     }
 }

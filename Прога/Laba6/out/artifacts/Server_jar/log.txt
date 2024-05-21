@@ -1,0 +1,34 @@
+мая 20, 2024 10:54:57 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 20, 2024 10:54:57 PM Model.EntryBlock start
+INFO: Сервер запущен
+мая 20, 2024 10:54:58 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 20, 2024 10:54:58 PM Model.EntryBlock writeList
+WARNING: Ошибка загрузки данных из файла
+2 элемент: Данный ID уже занят
+
+мая 20, 2024 10:55:05 PM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 20, 2024 10:55:12 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.100:58946
+мая 20, 2024 10:55:12 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: add
+мая 20, 2024 10:55:12 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 20, 2024 10:55:12 PM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 20, 2024 10:55:12 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.100:58946
+мая 20, 2024 10:55:17 PM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.100:58946
+мая 20, 2024 10:55:17 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: show
+мая 20, 2024 10:55:17 PM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.100:58946
+мая 20, 2024 10:55:22 PM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: exit
+мая 20, 2024 10:55:22 PM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: save
+мая 20, 2024 10:55:22 PM Controller.Executor execute
+INFO: Завершение работы сервера

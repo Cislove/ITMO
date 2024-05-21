@@ -9,6 +9,8 @@ import Model.ResponseLogic.Response;
 
 import java.io.*;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс описывающий обработчик запросов к вьюхе от контроллера
  * @author Ильнар Рахимов
@@ -25,6 +27,7 @@ public class Handler {
         res = new Responder(client);
     }
     public void setPort(int port) throws IOException {
+        logger.info("Установка порта сервера: " + port);
         client = clientFactory.initializeConnection(port);
     }
     /**

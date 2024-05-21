@@ -15,14 +15,14 @@ public class Executor implements IExecutor {
      * Метод реализующий исполнение программы
      */
     @Override
-    public void execute() {
+    public void execute(int port) {
         int numberOfConnectionAttempts = 1;
         view.send(model.startWelcome().getRight() + "Попытка установления соединения " + numberOfConnectionAttempts + "\n");
-        Pair<Integer, String> response = model.startServer();
+        Pair<Integer, String> response = model.startServer(port);
         while (response.getLeft() != 0 && numberOfConnectionAttempts < 3){
             numberOfConnectionAttempts++;
             view.send(response.getRight() + "Попытка установления соединения " + numberOfConnectionAttempts + "\n");
-            response = model.startServer();
+            response = model.startServer(port);
         }
         view.send(response.getRight());
         if(response.getLeft() != 0){

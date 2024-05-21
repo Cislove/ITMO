@@ -8,6 +8,8 @@ import Model.ResponseLogic.Response;
 
 import java.io.IOException;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс исполнитель всей программы. Отвечает за связывание модели и вьюхи
  * @author Ильнар Рахимов
@@ -26,7 +28,7 @@ public class Executor implements IExecutor {
     public void execute() {
         Pair<Integer, String> responseServer = model.start();
         view.send(responseServer.getRight());
-        String requestServer = null;
+        String requestServer;
         Response responseClient;
         Request requestClient;
         do {
@@ -38,16 +40,16 @@ public class Executor implements IExecutor {
                 }
             }
             catch (IOException ignored) {
-                try {
-                    requestClient = view.acceptClient();
-                    if (requestClient != null) {
-                        responseClient = model.executeServer(requestClient);
-                        view.sendClient(responseClient);
-                    }
-                }
-                catch (Exception ign) {
-
-                }
+//                try {
+//                    requestClient = view.acceptClient();
+//                    if (requestClient != null) {
+//                        responseClient = model.executeServer(requestClient);
+//                        view.sendClient(responseClient);
+//                    }
+//                }
+//                catch (Exception ignored1) {
+//
+//                }
             }
             try{
                 //System.out.println("Client accepted");
@@ -67,6 +69,7 @@ public class Executor implements IExecutor {
         } while (responseServer.getLeft() != -1);
         view.send(responseServer.getRight());
         model.execute("save");
+        logger.info("Завершение работы сервера");
         System.exit(0);
     }
 }

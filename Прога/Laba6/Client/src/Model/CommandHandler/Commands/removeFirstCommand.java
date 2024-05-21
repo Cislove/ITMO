@@ -23,6 +23,9 @@ public class removeFirstCommand implements Command {
             if(response == 0){
                 return new Pair<>(0, "Первый элемент успешно удален!\n");
             }
+            else if(response == 1){
+                return new Pair<>(0, "Коллекция и так пуста\n");
+            }
             else{
                 return new Pair<>(0, "Непредвиденная ошибка\n");
             }

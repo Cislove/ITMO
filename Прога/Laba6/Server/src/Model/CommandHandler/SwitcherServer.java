@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс обработчик запросов пользователя. Считывает запросы и вызывает исполнение нужных команд
  * @author Ильнар Рахимов
@@ -29,8 +31,10 @@ public class SwitcherServer {
     }
     public Response execute(Request request) {
         String command = request.command;
+        logger.info("Вызов команды: " + command);
         List<Object> arguments = request.args;
         if(command.equals("") && arguments == null){
+            logger.info("Подключение нового клиента");
             return new Response("");
         }
         if(operationMode == 0){

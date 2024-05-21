@@ -4,6 +4,8 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import java.io.IOException;
 
+import static Logger.MyLogger.logger;
+
 /**
  * Класс конвертирующий {@link XMLCollection} в XML файл
  * @author Ильнар Рахимов
@@ -20,6 +22,7 @@ public class Converter {
         try {
             return mapper.writeValueAsString(collection);
         } catch (IOException e) {
+            logger.warning("Ошибка сериализации: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
