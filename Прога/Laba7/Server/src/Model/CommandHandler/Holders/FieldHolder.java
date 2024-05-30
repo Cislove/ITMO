@@ -48,6 +48,7 @@ public class FieldHolder {
     }
 
     public StudyGroup getReadyEl() {
+        System.out.println(readyEl.getCoordinates());
         return readyEl;
     }
 

@@ -48,6 +48,7 @@ public class IOHandler{
      * @return прочитанную коллекцию
      */
     public XMLCollection readListFromFile(String name) throws IOException {
+
         String xml = reader.ReadFromFile(name);
         if(xml == null){
             throw new IOException("Ошибка чтения из файла, проверьте путь до него и правда доступа\n");

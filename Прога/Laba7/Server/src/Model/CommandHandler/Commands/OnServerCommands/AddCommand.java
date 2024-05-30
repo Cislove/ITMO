@@ -30,6 +30,7 @@ public class AddCommand implements ArgumentCommand{
 
     @Override
     public Pair<Integer, String> execute(String arguments){
+        System.out.println(arguments);
         Pair<Integer, String> response = fieldHolder.execute(arguments);
         if(response.getLeft() == 0){
             StudyGroup el = fieldHolder.getReadyEl();

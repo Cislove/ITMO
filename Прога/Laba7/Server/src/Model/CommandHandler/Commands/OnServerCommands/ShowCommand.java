@@ -21,6 +21,7 @@ public class ShowCommand implements Command{
             response.append("В коллекции отсутствуют элементы\n");
         }
         for(StudyGroup coll: storage.getAllElements()){
+            System.out.println(storage.getAllElements());
             response.append(coll.toString());
         }
         return new Pair<>(0, response.toString());

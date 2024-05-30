@@ -62,6 +62,9 @@ public class StorageWithStreamAPI extends Storage implements IStorage{
 
     @Override
     public LinkedList<StudyGroup> getAllElements() {
+        if(super.collection.get(0).getCoordinates().getXCord() == null){
+            System.out.println("null");
+        }
         return super.getAllElements().stream().sorted((o1, o2) -> (int)(o1.getId() - o2.getId())).collect(Collectors.toCollection(LinkedList::new));
     }
 
