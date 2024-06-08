@@ -605,3 +605,244 @@ INFO: Подключение нового клиента
 INFO: Отправка пакета на адрес:/192.168.1.103:61114
 мая 31, 2024 12:16:42 AM Model.CommandHandler.Switcher execute
 INFO: Вызов команды: add
+мая 31, 2024 12:45:58 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:45:58 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:45:59 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:45:59 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:45:59 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:46:00 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:52291
+мая 31, 2024 12:46:00 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 12:46:00 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 12:46:00 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:52291
+мая 31, 2024 12:46:00 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 12:47:02 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:47:02 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:47:02 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:47:02 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:47:02 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:47:03 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:62181
+мая 31, 2024 12:47:03 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 12:47:03 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 12:47:03 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:62181
+мая 31, 2024 12:47:05 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 12:48:12 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:48:12 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:48:12 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:48:12 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:48:12 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:48:15 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 12:48:20 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:48:20 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:48:20 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:48:20 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:48:20 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:48:21 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:59715
+мая 31, 2024 12:48:21 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 12:48:21 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 12:48:21 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:59715
+мая 31, 2024 12:48:28 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:59715
+мая 31, 2024 12:48:28 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: add
+мая 31, 2024 12:48:28 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 12:48:28 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:59715
+мая 31, 2024 12:48:30 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:59715
+мая 31, 2024 12:48:30 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: show
+мая 31, 2024 12:48:30 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:59715
+мая 31, 2024 12:50:54 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:50:54 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:50:54 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:50:54 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:50:54 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:50:57 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:50062
+мая 31, 2024 12:50:57 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 12:50:57 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 12:50:57 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:50062
+мая 31, 2024 12:51:05 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 12:51:47 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:51:47 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:51:47 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 12:51:47 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 12:51:47 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 12:51:50 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:65454
+мая 31, 2024 12:51:50 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 12:51:50 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 12:51:50 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:65454
+мая 31, 2024 1:02:52 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 1:02:52 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 1:02:52 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 1:02:52 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 1:02:52 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 1:03:39 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 1:03:39 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 1:03:39 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 1:03:39 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 1:03:39 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 1:03:42 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:55336
+мая 31, 2024 1:03:42 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 1:03:42 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 1:03:42 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:55336
+мая 31, 2024 1:03:42 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: ырщц
+мая 31, 2024 1:03:43 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 1:03:45 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 1:03:46 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 1:03:52 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 1:03:53 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 1:06:45 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 1:06:45 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 1:06:45 AM Model.IODriver.Reader.Reader ReadFromFile
+WARNING: Ошибка чтения с файла: Main.xml (Не удается найти указанный файл)
+мая 31, 2024 1:06:45 AM Model.EntryBlock writeList
+INFO: Ошибка загрузки данных из файла: Ошибка чтения из файла, проверьте путь до него и правда доступа
+
+мая 31, 2024 1:06:45 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 1:06:50 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 1:06:51 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 1:06:56 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 1:06:57 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 1:07:03 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: exit
+мая 31, 2024 1:07:03 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: save
+мая 31, 2024 1:07:03 AM Controller.Executor execute
+INFO: Завершение работы сервера
+мая 31, 2024 1:07:09 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 1:07:09 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 1:07:10 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 1:07:10 AM Model.Storage.StorageWithStreamAPI setmData
+INFO: Смена метаданных
+Старые:Информация о коллекции:
+Дата инициализации - Fri May 31 01:06:45 MSK 2024
+Тип коллекции - LinkedList
+Размер коллекции - 1
+Новые:Информация о коллекции:
+Дата инициализации - Fri May 31 01:06:45 MSK 2024
+Тип коллекции - LinkedList
+Размер коллекции - 1
+
+мая 31, 2024 1:07:10 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 1:07:18 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 1:07:18 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 1:07:19 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 1:07:19 AM Model.Storage.StorageWithStreamAPI setmData
+INFO: Смена метаданных
+Старые:Информация о коллекции:
+Дата инициализации - Fri May 31 01:06:45 MSK 2024
+Тип коллекции - LinkedList
+Размер коллекции - 1
+Новые:Информация о коллекции:
+Дата инициализации - Fri May 31 01:06:45 MSK 2024
+Тип коллекции - LinkedList
+Размер коллекции - 1
+
+мая 31, 2024 1:07:19 AM Model.EntryBlock writeList
+INFO: Загрузка коллекции из файла прошла успешно
+мая 31, 2024 1:07:21 AM Model.NetworkLogic.ChanelClientConnection listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.103:58015
+мая 31, 2024 1:07:21 AM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+мая 31, 2024 1:07:21 AM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+мая 31, 2024 1:07:21 AM Model.NetworkLogic.ChanelClientConnection sendData
+INFO: Отправка пакета на адрес:/192.168.1.103:58015

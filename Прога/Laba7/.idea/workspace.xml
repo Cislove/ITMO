@@ -5,178 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d7fd9da-60aa-4b67-b531-ee07fea6c099" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba6/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Client_jar/Client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Client_jar/Client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Lab6_Server/Lab6_Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Lab6_Server/Lab6_Server.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/ProgaLab5_jar/ProgaLab5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/ProgaLab5_jar/ProgaLab5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/Server.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/script1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/script2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Controller/Executor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Controller/IExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Main_Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/AddCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/AddIfMinCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/ArgumentCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/ClearCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/Command.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/CommandsList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/ExecuteScriptCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/ExitCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/FilterContainsNameCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/GroupCountingByidCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/HeadCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/InfoCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/MinByGroupAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/RemoveByIdCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/ShowCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/UpdateCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Commands/removeFirstCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Holders/ClosedFieldsHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Holders/FieldHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/CommandHandler/Switcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/EntryBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/IModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/IODriver/IOHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/IODriver/Reader/Reader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/IODriver/Writter/Writter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/NetworkLogic/DatagramServerConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/NetworkLogic/DatagramServerConnectionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/NetworkLogic/Handler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/NetworkLogic/ServerConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/NetworkLogic/ServerConnectionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/RequestLogic/ByteSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/RequestLogic/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/RequestLogic/Serializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/ResponseLogic/ByteDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/ResponseLogic/Deserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/ResponseLogic/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/IStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/ObjectDescription/baseMetaData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/PassportIdStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/Storage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/Coordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/FormOfEducation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/Semester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/StudyGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/closedField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/enumType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/fieldWithCompoundInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageObject/mayBeNull.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Storage/StorageWithStreamAPI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/ClientValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/ClosedFieldValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/IDException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/IDHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/ParseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/ValidateException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Model/Validation/Validator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/Handler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/ITransmittedPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/Receiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/Responder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/TransmittedPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/acceptable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/View/sendable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Controller/Executor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Controller/IExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Logger/MyLogger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddIfMinCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/ArgumentCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/ClearCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/Command.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/CommandsList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/ExecuteScriptCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/ExitCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/FilterContainsNameCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/GroupCountingByidCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/HeadCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/InfoCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/MinByGroupAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/RemoveByIdCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/SaveCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/ShowCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/UpdateCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/removeFirstCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/AddCommandServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/AddIfMinCommandServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/ClearServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/CommandsList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/FilterContainsNameCommandServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/GroupCountingByidServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/HeadServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/InfoServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/MinByGroupAdminServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/RemoveByIdCommandServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/ServerArgumentCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/ServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/ShowServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/UpdateCommandServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/ToClientCommands/removeFirstServerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/ClosedFieldsHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/FieldHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Switcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/SwitcherServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/EntryBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/IOHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/Reader/Reader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/Writter/Writter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/XMLConverter/Converter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/XMLConverter/XMLCollection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/XMLParser/ParseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/XMLParser/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/NetworkLogic/ChanelClientConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/NetworkLogic/ChanelClientConnectionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/NetworkLogic/ClientConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/NetworkLogic/ClientConnectionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/RequestLogic/ByteSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/RequestLogic/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/RequestLogic/Serializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/ResponseLogic/ByteDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/ResponseLogic/Deserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/ResponseLogic/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/IStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/ObjectDescription/baseMetaData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/PassportIdStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/Storage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Coordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/FormOfEducation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Semester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/StudyGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/closedField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/enumType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/fieldWithCompoundInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/mayBeNull.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageWithStreamAPI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/ClosedFieldValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/IDException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/IDHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/ValidateException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Model/Validation/Validator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/Handler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/IPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/Receiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/Responder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/acceptable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/View/sendable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laba7.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Laba7.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/FieldHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/FieldHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/IOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/IODriver/IOHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageWithStreamAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/Storage/StorageWithStreamAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -197,6 +57,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2hCYyy6Bi5ObKNWYWdKawsLLpbP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -210,16 +73,18 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;proga/Laba7&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vim15/Desktop/ITMO/Прога/Laba6/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vim15/Desktop/ITMO/Прога/Laba7&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -235,6 +100,8 @@
   </component>
   <component name="RunManager" selected="Compound.Project">
     <configuration name="Client" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main_Client" />
       <module name="Client" />
       <method v="2">
@@ -242,7 +109,7 @@
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main_Server" />
       <module name="Server" />
@@ -278,7 +145,10 @@
       <option name="presentableId" value="Default" />
       <updated>1717099786256</updated>
       <workItem from="1717099787313" duration="3646000" />
-      <workItem from="1717103578789" duration="873000" />
+      <workItem from="1717103578789" duration="8328000" />
+      <workItem from="1717114126751" duration="12903000" />
+      <workItem from="1717360474685" duration="28000" />
+      <workItem from="1717793963046" duration="318000" />
     </task>
     <servers />
   </component>
