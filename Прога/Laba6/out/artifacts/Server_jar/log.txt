@@ -32,3 +32,33 @@ INFO: Вызов команды: exit
 INFO: Вызов команды: save
 мая 20, 2024 10:55:22 PM Controller.Executor execute
 INFO: Завершение работы сервера
+мая 31, 2024 12:56:55 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 12:56:55 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 12:56:56 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 12:56:56 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 12:56:56 AM Model.EntryBlock writeList
+WARNING: Ошибка загрузки данных из файла
+3 элемент: Данный ID уже занят
+
+мая 31, 2024 12:56:58 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show
+мая 31, 2024 12:57:02 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: add
+мая 31, 2024 2:32:41 AM Logger.MyLogger <clinit>
+INFO: Logger initialized
+мая 31, 2024 2:32:41 AM Model.EntryBlock start
+INFO: Сервер запущен
+мая 31, 2024 2:32:42 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 2:32:42 AM Model.Storage.StorageWithStreamAPI addElement
+INFO: Добавление элемента в коллекцию: 
+мая 31, 2024 2:32:42 AM Model.EntryBlock writeList
+WARNING: Ошибка загрузки данных из файла
+3 элемент: Данный ID уже занят
+
+мая 31, 2024 2:32:44 AM Model.CommandHandler.Switcher execute
+INFO: Вызов команды: show

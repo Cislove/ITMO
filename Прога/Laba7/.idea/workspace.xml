@@ -4,53 +4,130 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="625090a3-b91a-46cc-9a7c-c94304bb765a" name="Changes" comment="" />
+    <list default="true" id="6d7fd9da-60aa-4b67-b531-ee07fea6c099" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Client_jar/Client.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Client_jar/Client.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Lab6_Server/Lab6_Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Lab6_Server/Lab6_Server.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/ProgaLab5_jar/ProgaLab5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/ProgaLab5_jar/ProgaLab5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/Server.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/out/artifacts/Server_jar/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7b9fbd02-90c9-44cc-9002-81e10e57ecc6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laba7.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Laba7.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Commands/OnServerCommands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/FieldHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/CommandHandler/Holders/FieldHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/IODriver/IOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/IODriver/IOHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/Storage/StorageObject/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Model/Storage/StorageWithStreamAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Model/Storage/StorageWithStreamAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/../.." value="Laba7" />
-      </map>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Cislove"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Cislove&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Cislove/ITMO.git",
-    "accountId": "2d9e180f-6c61-4711-b31c-e3797ded6d0a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Cislove/ITMO.git&quot;,
+    &quot;accountId&quot;: &quot;2d9e180f-6c61-4711-b31c-e3797ded6d0a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2hCX3WCyNoP6cAhep0ZUsNW68zt" />
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2hCYyy6Bi5ObKNWYWdKawsLLpbP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "proga/Laba6",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;proga/Laba7&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vim15/Desktop/ITMO/Прога/Laba7&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vim15\Desktop\ITMO\Прога\Laba7" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Compound.Project">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main_Client" />
+      <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main_Server" />
+      <module name="Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Project" type="CompoundRunConfigurationType">
+      <toRun name="Client" type="Application" />
+      <toRun name="Server" type="Application" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Compound.Project" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -62,39 +139,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="625090a3-b91a-46cc-9a7c-c94304bb765a" name="Changes" comment="" />
-      <created>1717098834927</created>
+      <changelist id="6d7fd9da-60aa-4b67-b531-ee07fea6c099" name="Changes" comment="" />
+      <created>1717099786256</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1717098834927</updated>
-      <workItem from="1717098835986" duration="369000" />
+      <updated>1717099786256</updated>
+      <workItem from="1717099787313" duration="3646000" />
+      <workItem from="1717103578789" duration="8328000" />
+      <workItem from="1717114126751" duration="12903000" />
+      <workItem from="1717360474685" duration="28000" />
+      <workItem from="1717793963046" duration="318000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="proga/Laba6" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
