@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.LoginAndPassword;
 import View.Handler;
 import Model.CommandHandler.Commands.Pair;
 import Model.EntryBlock;
@@ -29,8 +30,14 @@ public class Executor implements IExecutor {
             view.send("В настоящее время сервер не доступен\n");
             System.exit(0);
         }
+        //view.send("Введите логин и пароль\n");
         response = model.start();
         String request;
+//        while(LoginAndPassword.login == null){
+//            request = view.update(response.getRight());
+//            request = "logIn" +
+//            response = model.execute(request);
+//        }
         do {
             request = view.update(response.getRight());
             response = model.execute(request);

@@ -28,7 +28,6 @@ public class ChanelClientConnection implements ClientConnection {
             throw new IOException("No user address");
         }
         logger.info("Прием пакета с адреса: " + userAddress);
-        buffer.flip();
         return arr;
     }
 

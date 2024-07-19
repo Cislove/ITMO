@@ -72,11 +72,15 @@ public class EntryBlock implements IModel {
         list.register("execute_script file_name", "считать и исполнить скрипт из указанного файла");
         list.register("exit", "завершить программу (без сохранения в файл)");
         list.register("remove_first", "удалить первый элемент из коллекции");
+        list.register("register", "зарегистрировать новый аккаунт");
+        list.register("logIn", "войти в другой аккаунт");
         list.register("head", "вывести первый элемент коллекции");
         list.register("add_if_min {element}", "добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции");
         list.register("min_by_group_admin", "вывести любой объект из коллекции, значение поля groupAdmin которого является минимальным");
         list.register("group_counting_by_id", "сгруппировать элементы коллекции по значению поля id, вывести количество элементов в каждой группе");
         list.register("filter_contains_name name", "вывести элементы, значение поля name которых содержит заданную подстроку");
+        ArgumentCommand registerCommand = new RegisterCommand(server);
+        ArgumentCommand logInCommand = new LogInCommand(server);
         Command helpCommand = new HelpCommand(list);
         Command infoCommand = new InfoCommand(server);
         Command showCommand = new ShowCommand(server);
@@ -92,6 +96,8 @@ public class EntryBlock implements IModel {
         ArgumentCommand executeScriptCommand = new ExecuteScriptCommand(ioHandler, commandHandler);
         ArgumentCommand addIfMin = new AddIfMinCommand(server);
         ArgumentCommand filterContainsName = new FilterContainsNameCommand(server);
+        commandHandler.ArgumentCommandsRegister("register", registerCommand);
+        commandHandler.ArgumentCommandsRegister("logIn", logInCommand);
         commandHandler.CommandsRegister("help", helpCommand);
         commandHandler.CommandsRegister("info", infoCommand);
         commandHandler.CommandsRegister("show", showCommand);

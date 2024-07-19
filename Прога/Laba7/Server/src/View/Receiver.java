@@ -47,6 +47,7 @@ public class Receiver implements acceptable {
     }
     public Request getRequest() throws IOException, ClassNotFoundException {
         byte[] arr = client.listenAndGetData();
+        //System.out.println("Принял2\n");
         return deserializer.deserialize(arr);
     }
 }

@@ -121,9 +121,9 @@ public class Validator {
         if(id.length() < 9 || id.length() > 31){
             throw new ValidateException("Длина номера паспорта должна быть не менее 9 и не более 31\n");
         }
-        if(storage.checkPassportId(id)){
-            throw new ValidateException("Номер паспорта должен быть уникальным!\n");
-        }
+//        if(storage.checkPassportId(id)){
+//            throw new ValidateException("Номер паспорта должен быть уникальным!\n");
+//        }
         return true;
     }
     /**

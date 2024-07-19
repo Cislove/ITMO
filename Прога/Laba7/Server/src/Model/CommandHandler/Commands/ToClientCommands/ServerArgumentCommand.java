@@ -2,6 +2,7 @@ package Model.CommandHandler.Commands.ToClientCommands;
 
 import Model.CommandHandler.Commands.Pair;
 import Model.ResponseLogic.Response;
+import Model.Storage.StorageObject.User;
 
 import java.util.List;
 
@@ -11,6 +12,6 @@ import java.util.List;
  * @author Ильнар Рахимов
  */
 public interface ServerArgumentCommand {
-    Pair<Integer, Response> execute(List<Object> requests);
+    Pair<Integer, Response> execute(User user, List<Object> requests);
     void update();
 }

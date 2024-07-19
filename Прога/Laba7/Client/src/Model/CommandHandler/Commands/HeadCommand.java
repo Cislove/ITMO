@@ -1,11 +1,14 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  * Класс реализации команды "head"
@@ -20,7 +23,10 @@ public class HeadCommand implements Command {
     @Override
     public Pair<Integer, String> execute(){
         try {
-            StudyGroup response = (StudyGroup) server.sendRequestAndGetResponse(new Request("head", null));
+            LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
+            StudyGroupWithUser response = (StudyGroupWithUser) server.sendRequestAndGetResponse(new Request("head", args));
             if(response == null)
                 return new Pair<>(0, "Коллекция пустая\n");
             return new Pair<>(0, response.toString());

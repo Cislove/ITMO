@@ -2,6 +2,7 @@ package Model.Storage;
 
 import Model.Storage.ObjectDescription.baseMetaData;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
 
 import java.util.LinkedList;
 
@@ -14,40 +15,44 @@ import java.util.LinkedList;
  * @author Ильнар Рахимов
  */
 public class Storage implements IStorage {
-    protected LinkedList<StudyGroup> collection;
+    protected LinkedList<StudyGroupWithUser> collection;
     protected baseMetaData mDATA;
-    protected PassportIdStorage passportIds;
     public Storage(){
         collection = new LinkedList<>();
         mDATA = new baseMetaData("LinkedList");
-        passportIds = new PassportIdStorage();
     }
-    public int addElement(StudyGroup el){
+    public int addElement(StudyGroupWithUser el){
         collection.add(el);
-        if(el.getGroupAdmin() != null) {
-            //PassportIdStorage.put(el.getGroupAdmin().getPassportID(), true);
-            passportIds.addPassportId(el.getGroupAdmin().getPassportID());
-        }
         return 0;
     }
     public int delElement(int id){
-        if(collection.get(id).getGroupAdmin() != null) {
-            passportIds.removePassportId(collection.get(id).getGroupAdmin().getPassportID());
-        }
         collection.remove(id);
         return 0;
     }
-    public int updElement(int id, StudyGroup el){
+    public int updElement(int id, StudyGroupWithUser el){
         collection.set(id, el);
-        if(el.getGroupAdmin() != null) {
-            passportIds.updatePassportId(el.getGroupAdmin().getPassportID(), true);
-        }
         return 0;
     }
-    public StudyGroup getElement(int id){
+    public StudyGroupWithUser getElement(int id){
         return collection.get(id);
     }
-    public LinkedList <StudyGroup> getAllElements(){
+    public int getIdElementById (int id){
+        for(int i = 0; i < collection.size(); i++){
+            if(collection.get(i).group.getId() == id){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public StudyGroupWithUser getElementById(int id){
+        for (StudyGroupWithUser el : collection){
+            if(el.group.getId() == id)
+                return el;
+        }
+        return null;
+    }
+    public LinkedList <StudyGroupWithUser> getAllElements(){
         return collection;
     }
     public int clear(){
@@ -62,14 +67,11 @@ public class Storage implements IStorage {
     public void setmData(baseMetaData mDATA){
         this.mDATA = mDATA;
     }
-    public void setCollection(LinkedList<StudyGroup> list){
+    public void setCollection(LinkedList<StudyGroupWithUser> list){
         collection = list;
     }
     /**
      * Проверка passportID на занятость
      * @return true - занят, false - свободен
      */
-    public boolean checkPassportId(String passportId){
-        return passportIds.checkPassportId(passportId);
-    }
 }

@@ -7,15 +7,14 @@ import Model.CommandHandler.Commands.OnServerCommands.CommandsList;
 import Model.CommandHandler.Commands.OnServerCommands.MinByGroupAdmin;
 import Model.CommandHandler.Commands.Pair;
 import Model.CommandHandler.Commands.ToClientCommands.*;
-import Model.CommandHandler.Switcher;
 import Model.CommandHandler.SwitcherServer;
 import Model.IODriver.IOHandler;
+import Model.IODriver.IOHandlerWithDatabase;
 import Model.IODriver.Reader.Reader;
 import Model.IODriver.Writter.Writter;
 import Model.IODriver.XMLConverter.XMLCollection;
-import Model.Storage.IStorage;
+import Model.Storage.*;
 import Model.Storage.StorageObject.StudyGroup;
-import Model.Storage.StorageWithStreamAPI;
 import Model.Validation.ClosedFieldValidator;
 import Model.Validation.IDHandler;
 import Model.Validation.ValidateException;
@@ -23,85 +22,102 @@ import Model.RequestLogic.Request;
 import Model.ResponseLogic.Response;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.concurrent.ForkJoinPool;
 import java.util.logging.Level;
 
-/**
- * Класс описывающий связующий блок между моделью и контроллер.
- * Отвечает за передачу запросов на {@link Switcher} и запуск модели
- * @author Ильнар Рахимов
- */
 public class EntryBlock implements IModel{
-    Switcher commandHandler;
+    //Switcher commandHandler;
     SwitcherServer commandServerHandler;
+    ForkJoinPool fjp;
     /**
      * Метод реализующий исполнение класса
      * @return ответ модели
      */
     public Pair<Integer, String> execute(String request){
         Pair<Integer, String> response;
-        response = commandHandler.execute(request);
-        return response;
+        //response = commandHandler.execute(request);
+        //return response;
+        return null;
     }
     @Override
     public Response executeServer(Request request){
         Response response;
-        response = commandServerHandler.execute(request);
+        //System.out.println(request.command);
+        //System.out.println(request.args);
+        response = fjp.invoke(new Task(commandServerHandler, request));
+        //response = commandServerHandler.execute(request);
         return response;
     }
     /**
      * Метод реализующий загрузку данных о группах из XML файла
      * @return строку - итоги работы метода
      */
-    private String writeList(IStorage st, IOHandler ioHandler, IDHandler idHandler){
-        int idEl = 1;
-        try {
-            ClosedFieldValidator validator = new ClosedFieldValidator(st, idHandler);
-            XMLCollection collection = ioHandler.readListFromFile("Main.xml");
-            for(StudyGroup el: collection.getCollection()){
-                validator.StudyGroupIDValidation(el.getId());
-                validator.StudyGroupNameValidation(el.getName());
-                validator.CoordinatesXCordValidation(el.getCoordinates().getXCord());
-                validator.CoordinatesYCordValidation(el.getCoordinates().getYCord());
-                validator.StudyGroupCreationDateValidation(el.getCreationDate());
-                validator.StudyGroupStudentsCountValidation(el.getStudentsCount());
-                if(el.getGroupAdmin() != null){
-                    validator.PersonNameValidation(el.getGroupAdmin().getName());
-                    validator.PersonBirthdayValidation(el.getGroupAdmin().getBirthday());
-                    validator.PersonHeightValidation(el.getGroupAdmin().getHeight());
-                    validator.PersonWeightValidation(el.getGroupAdmin().getWeight());
-                    validator.PersonPassportIDValidation(el.getGroupAdmin().getPassportID());
-                }
-                st.addElement(el);
-                idEl++;
-            }
-            st.setmData(collection.getmDATA());
-        }
-        catch (ValidateException | NullPointerException e){
-            logger.warning("Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage());
-            return "Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage();
-        }
-        catch (IOException e){
-            logger.info("Ошибка загрузки данных из файла: " + e.getMessage());
-        }
-        logger.info("Загрузка коллекции из файла прошла успешно");
-        return "Данные из файла успешно загружены\n";
-    }
+//    private String writeList(IStorage st, IOHandler ioHandler, IDHandler idHandler){
+//        int idEl = 1;
+//        try {
+//            ClosedFieldValidator validator = new ClosedFieldValidator(st, idHandler);
+//            XMLCollection collection = ioHandler.readListFromFile("Main.xml");
+//            for(StudyGroup el: collection.getCollection()){
+//                validator.StudyGroupIDValidation(el.getId());
+//                validator.StudyGroupNameValidation(el.getName());
+//                validator.CoordinatesXCordValidation(el.getCoordinates().getXCord());
+//                validator.CoordinatesYCordValidation(el.getCoordinates().getYCord());
+//                validator.StudyGroupCreationDateValidation(el.getCreationDate());
+//                validator.StudyGroupStudentsCountValidation(el.getStudentsCount());
+//                if(el.getGroupAdmin() != null){
+//                    validator.PersonNameValidation(el.getGroupAdmin().getName());
+//                    validator.PersonBirthdayValidation(el.getGroupAdmin().getBirthday());
+//                    validator.PersonHeightValidation(el.getGroupAdmin().getHeight());
+//                    validator.PersonWeightValidation(el.getGroupAdmin().getWeight());
+//                    validator.PersonPassportIDValidation(el.getGroupAdmin().getPassportID());
+//                }
+//                st.addElement(el);
+//                idEl++;
+//            }
+//            st.setmData(collection.getmDATA());
+//        }
+//        catch (ValidateException | NullPointerException e){
+//            logger.warning("Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage());
+//            return "Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage();
+//        }
+//        catch (IOException e){
+//            logger.info("Ошибка загрузки данных из файла: " + e.getMessage());
+//        }
+//        logger.info("Загрузка коллекции из файла прошла успешно");
+//        return "Данные из файла успешно загружены\n";
+//    }
     /**
      * Метод реализующий подготовку модели к работе
      * @return строку - итоги работы метода
      */
     public Pair<Integer, String> start(){
+        fjp = new ForkJoinPool();
         String response = "Сервер запущен!!!\n";
         logger.info("Сервер запущен");
-        IStorage st = new StorageWithStreamAPI();
         Reader r = new Reader();
         Writter w = new Writter();
-        IDHandler idHandler = new IDHandler();
-        IOHandler ioHandler = new IOHandler(r, w);
+        //IDHandler idHandler = new IDHandler();
+        IOHandlerWithDatabase ioHandler;
+        try {
+            ioHandler = new IOHandlerWithDatabase(r, w, "jdbc:postgresql://localhost:5432/postgres", "root", "123");
+            //ioHandler = new IOHandlerWithDatabase(r, w, "jdbc:postgresql://localhost:5432/studs", "s409442", "MPwTkptB0wEgf7BM");
+        }
+        catch (SQLException ex) {
+            throw new RuntimeException(ex);
+            //throw new RuntimeException("Не получилось подключиться к базе данных\n");
+        }
+        DataManager dataManager;
+        try {
+            dataManager = new DataManager(ioHandler);
+        }
+        catch (SQLException ex) {
+            throw new RuntimeException("Не получилось считать данные из базы данных\n");
+        }
         CommandsList list = new CommandsList();
         CommandsList listServer = new CommandsList();
-        commandHandler = new Switcher();
-        commandServerHandler = new SwitcherServer();
+        //commandHandler = new Switcher();
+        commandServerHandler = new SwitcherServer(dataManager);
         list.register("help", "вывести справку по доступным командам");
         list.register("info", "вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
         listServer.register("info", "вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
@@ -130,74 +146,78 @@ public class EntryBlock implements IModel{
         listServer.register("group_counting_by_id", "сгруппировать элементы коллекции по значению поля id, вывести количество элементов в каждой группе");
         list.register("filter_contains_name name", "вывести элементы, значение поля name которых содержит заданную подстроку");
         listServer.register("filter_contains_name name", "вывести элементы, значение поля name которых содержит заданную подстроку");
-        Command helpCommand = new HelpCommand(list);
-        Command infoCommand = new InfoCommand(st);
-        ServerCommand infoServerCommand = new InfoServerCommand(st);
-        Command showCommand = new ShowCommand(st);
-        ServerCommand showServerCommand = new ShowServerCommand(st);
-        Command clearCommand = new ClearCommand(st, idHandler);
-        ServerCommand clearServerCommand = new ClearServerCommand(st, idHandler);
-        Command saveCommand = new SaveCommand(st, ioHandler);
-        Command exitCommand = new ExitCommand();
-        Command removeFirstCommand = new removeFirstCommand(st, idHandler);
-        ServerCommand removeFirstServerCommand = new removeFirstServerCommand(st, idHandler);
-        Command headCommand = new HeadCommand(st);
-        ServerCommand headServerCommand = new HeadServerCommand(st);
-        Command minByGroupAdmin = new MinByGroupAdmin(st);
-        ServerCommand minByGroupAdminServer = new MinByGroupAdminServer(st);
-        Command groupCountingById = new GroupCountingByidCommand(st);
-        ServerCommand groupCountingByIdServer = new GroupCountingByidServerCommand(st);
-        ArgumentCommand addCommand = new AddCommand(st, idHandler);
-        ServerArgumentCommand addServerCommand = new AddCommandServer(st, idHandler);
-        ArgumentCommand updCommand = new UpdateCommand(st, idHandler);
-        ServerArgumentCommand updServerCommand = new UpdateCommandServer(st, idHandler);
-        ArgumentCommand removeByIdCommand = new RemoveByIdCommand(st, idHandler);
-        ServerArgumentCommand removeByIdServerCommand = new RemoveByIdCommandServer(st, idHandler);
-        ArgumentCommand executeScriptCommand = new ExecuteScriptCommand(ioHandler, commandHandler);
-        ArgumentCommand addIfMin = new AddIfMinCommand(st, idHandler);
-        ServerArgumentCommand addIfMinServer = new AddIfMinCommandServer(st, idHandler);
-        ArgumentCommand filterContainsName = new FilterContainsNameCommand(st);
-        ServerArgumentCommand filterContainsNameServer = new FilterContainsNameCommandServer(st);
-        commandHandler.CommandsRegister("help", helpCommand);
-        commandHandler.CommandsRegister("info", infoCommand);
+        //Command helpCommand = new HelpCommand(list);
+        //Command infoCommand = new InfoCommand(dataManager);
+        ServerArgumentCommand registerServerCommand = new RegisterUserCommandServer(dataManager);
+        ServerArgumentCommand logInServerCommand = new LogInUserCommandServer(dataManager);
+        ServerCommand infoServerCommand = new InfoServerCommand(dataManager);
+        //Command showCommand = new ShowCommand(dataManager);
+        ServerCommand showServerCommand = new ShowServerCommand(dataManager);
+        //Command clearCommand = new ClearCommand(dataManager);
+        ServerCommand clearServerCommand = new ClearServerCommand(dataManager);
+        //Command saveCommand = new SaveCommand(st, ioHandler);
+        //Command exitCommand = new ExitCommand();
+        //Command removeFirstCommand = new removeFirstCommand(dataManager);
+        ServerCommand removeFirstServerCommand = new removeFirstServerCommand(dataManager);
+        //Command headCommand = new HeadCommand(dataManager);
+        ServerCommand headServerCommand = new HeadServerCommand(dataManager);
+        //Command minByGroupAdmin = new MinByGroupAdmin(dataManager);
+        ServerCommand minByGroupAdminServer = new MinByGroupAdminServer(dataManager);
+        //Command groupCountingById = new GroupCountingByidCommand(dataManager);
+        ServerCommand groupCountingByIdServer = new GroupCountingByidServerCommand(dataManager);
+        //ArgumentCommand addCommand = new AddCommand(dataManager);
+        ServerArgumentCommand addServerCommand = new AddCommandServer(dataManager);
+        //ArgumentCommand updCommand = new UpdateCommand(dataManager);
+        ServerArgumentCommand updServerCommand = new UpdateCommandServer(dataManager);
+        //ArgumentCommand removeByIdCommand = new RemoveByIdCommand(dataManager);
+        ServerArgumentCommand removeByIdServerCommand = new RemoveByIdCommandServer(dataManager);
+        //ArgumentCommand executeScriptCommand = new ExecuteScriptCommand(ioHandler, commandHandler);
+        //ArgumentCommand addIfMin = new AddIfMinCommand(dataManager);
+        ServerArgumentCommand addIfMinServer = new AddIfMinCommandServer(dataManager);
+        //ArgumentCommand filterContainsName = new FilterContainsNameCommand(dataManager);
+        ServerArgumentCommand filterContainsNameServer = new FilterContainsNameCommandServer(dataManager);
+//        commandHandler.CommandsRegister("help", helpCommand);
+//        commandHandler.CommandsRegister("info", infoCommand);
+        commandServerHandler.ArgumentCommandsRegister("register", registerServerCommand);
+        commandServerHandler.ArgumentCommandsRegister("logIn", logInServerCommand);
         commandServerHandler.CommandsRegister("info", infoServerCommand);
-        commandHandler.CommandsRegister("show", showCommand);
+        //commandHandler.CommandsRegister("show", showCommand);
         commandServerHandler.CommandsRegister("show", showServerCommand);
 
-        commandHandler.CommandsRegister("clear", clearCommand);
+        //commandHandler.CommandsRegister("clear", clearCommand);
         commandServerHandler.CommandsRegister("clear", clearServerCommand);
 
-        commandHandler.CommandsRegister("save", saveCommand);
-        commandHandler.CommandsRegister("exit", exitCommand);
-        commandHandler.CommandsRegister("remove_first", removeFirstCommand);
+        //commandHandler.CommandsRegister("save", saveCommand);
+        //commandHandler.CommandsRegister("exit", exitCommand);
+        //commandHandler.CommandsRegister("remove_first", removeFirstCommand);
         commandServerHandler.CommandsRegister("remove_first", removeFirstServerCommand);
 
-        commandHandler.CommandsRegister("head", headCommand);
+        //commandHandler.CommandsRegister("head", headCommand);
         commandServerHandler.CommandsRegister("head", headServerCommand);
 
-        commandHandler.CommandsRegister("min_by_group_admin", minByGroupAdmin);
+        //commandHandler.CommandsRegister("min_by_group_admin", minByGroupAdmin);
         commandServerHandler.CommandsRegister("min_by_group_admin", minByGroupAdminServer);
 
-        commandHandler.CommandsRegister("group_counting_by_id", groupCountingById);
+        //commandHandler.CommandsRegister("group_counting_by_id", groupCountingById);
         commandServerHandler.CommandsRegister("group_counting_by_id", groupCountingByIdServer);
 
-        commandHandler.ArgumentCommandsRegister("add", addCommand);
+        //commandHandler.ArgumentCommandsRegister("add", addCommand);
         commandServerHandler.ArgumentCommandsRegister("add", addServerCommand);
 
-        commandHandler.ArgumentCommandsRegister("update", updCommand);
+        //commandHandler.ArgumentCommandsRegister("update", updCommand);
         commandServerHandler.ArgumentCommandsRegister("update", updServerCommand);
 
-        commandHandler.ArgumentCommandsRegister("remove_by_id", removeByIdCommand);
+        //commandHandler.ArgumentCommandsRegister("remove_by_id", removeByIdCommand);
         commandServerHandler.ArgumentCommandsRegister("remove_by_id", removeByIdServerCommand);
 
-        commandHandler.ArgumentCommandsRegister("execute_script", executeScriptCommand);
+        //commandHandler.ArgumentCommandsRegister("execute_script", executeScriptCommand);
 
-        commandHandler.ArgumentCommandsRegister("add_if_min", addIfMin);
+        //commandHandler.ArgumentCommandsRegister("add_if_min", addIfMin);
         commandServerHandler.ArgumentCommandsRegister("add_if_min", addIfMinServer);
 
-        commandHandler.ArgumentCommandsRegister("filter_contains_name", filterContainsName);
+        //commandHandler.ArgumentCommandsRegister("filter_contains_name", filterContainsName);
         commandServerHandler.ArgumentCommandsRegister("filter_contains_name", filterContainsNameServer);
-        response += writeList(st, ioHandler, idHandler);
+        //response += writeList(st, ioHandler, idHandler);
         return new Pair<>(0, response);
     }
 }

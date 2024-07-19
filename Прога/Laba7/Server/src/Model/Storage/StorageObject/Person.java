@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -15,6 +16,9 @@ import java.time.LocalDate;
  */
 
 public class Person implements Comparable<Person>, Serializable {
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @Serial
+    private static final long serialVersionUID = 6;
     private String name; //Поле не может быть null, Строка не может быть пустой
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)

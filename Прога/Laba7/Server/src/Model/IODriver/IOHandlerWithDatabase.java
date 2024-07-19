@@ -19,13 +19,16 @@ public class IOHandlerWithDatabase extends IOHandler{
         dbConnFactory = new PGDataBaseConnectionFactory();
         dbConn = dbConnFactory.initializeConnection(url, user, password);
     }
-    public ResultSet getSqlResponse(String request) throws SQLException {
-        return dbConn.queryToReceive(request);
+    public ResultSet getSqlResponse(PreparedStatement ps) throws SQLException {
+        return dbConn.queryToReceive(ps);
     }
-    public int executeSqlRequest(String request) throws SQLException {
-        return dbConn.queryToUpdateOrInsert(request);
+    public int executeSqlRequest(PreparedStatement ps) throws SQLException {
+        return dbConn.queryToUpdateOrInsert(ps);
     }
     public void finish() throws SQLException {
         dbConn.finishConnection();
+    }
+    public PreparedStatement getStatement(String sql) throws SQLException {
+        return dbConn.getPreparedStatement(sql);
     }
 }

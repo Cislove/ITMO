@@ -1,5 +1,6 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.IStorage;
@@ -26,6 +27,8 @@ public class RemoveByIdCommand implements ArgumentCommand {
         try {
             int id = Integer.parseInt(arguments);
             LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
             args.add(id);
             int response = (int) server.sendRequestAndGetResponse(new Request("remove_by_id", args));
             out.setLeft(0);
@@ -34,7 +37,10 @@ public class RemoveByIdCommand implements ArgumentCommand {
                     out.setRight("Элемент успешно удален\n");
                     break;
                 case 1:
-                    out.setRight("ID должен принадлежать элементу коллекции\n");
+                    out.setRight("У вас нет прав на удаление этой группы\n");
+                    break;
+                case 2:
+                    out.setRight("ID должен принадлежать какой то группе\n");
                     break;
             }
         }

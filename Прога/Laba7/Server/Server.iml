@@ -10,5 +10,6 @@
     <orderEntry type="library" exported="" name="fasterxml.jackson.datatype.jsr310" level="project" />
     <orderEntry type="library" exported="" name="fasterxml.jackson.dataformat.xml" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="postgresql-42.7.3" level="project" />
   </component>
 </module>

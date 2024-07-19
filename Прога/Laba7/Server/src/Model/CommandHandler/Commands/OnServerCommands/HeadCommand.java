@@ -1,26 +1,28 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
 import Model.CommandHandler.Commands.Pair;
+import Model.Storage.DataManager;
 import Model.Storage.IStorage;
+import Model.Storage.StorageObject.User;
 
 /**
  * Класс реализации команды "head"
  * @author Ильнар Рахимов
  */
 public class HeadCommand implements Command{
-    IStorage storage;
-    public HeadCommand(IStorage storage){
-        this.storage = storage;
+    DataManager dataManager;
+    public HeadCommand(DataManager dataManager){
+        this.dataManager = dataManager;
     }
 
     @Override
-    public Pair<Integer, String> execute(){
+    public Pair<Integer, String> execute(User user){
         String response;
-        if(storage.getAllElements().isEmpty()){
+        if(dataManager.getCollection().isEmpty()){
             response = "В коллекции нет элементов(";
         }
         else{
-            response = storage.getElement(0).toString();
+            response = dataManager.getCollection().get(0).toString();
         }
         response += "\n";
         return new Pair<>(0, response);

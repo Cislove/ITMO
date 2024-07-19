@@ -4,9 +4,11 @@ package Model.CommandHandler;
 import Model.CommandHandler.Commands.ArgumentCommand;
 import Model.CommandHandler.Commands.Command;
 import Model.CommandHandler.Commands.Pair;
+import Model.LoginAndPassword;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Класс обработчик запросов пользователя. Считывает запросы и вызывает исполнение нужных команд
@@ -36,6 +38,8 @@ public class Switcher {
                 command = request;
                 arguments = "";
             }
+            if(Objects.equals(LoginAndPassword.login, "error") && !command.equals("logIn") && !command.equals("register"))
+                return new Pair<>(0, "Сначала необходимо авторизоваться или зарегистрироваться\n");
             if(argumentCommandMap.get(command) != null){
                 lastCommands.add(command);
                 if(arguments.isEmpty()){

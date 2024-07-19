@@ -14,15 +14,19 @@ public class PGDataBaseConnection implements DataBaseConnection {
     }
 
     @Override
-    public ResultSet queryToReceive(String sql) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        return rs;
+    public ResultSet queryToReceive(PreparedStatement ps) throws SQLException {
+        return ps.executeQuery();
     }
 
     @Override
-    public int queryToUpdateOrInsert(String sql) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement(sql);
-        return ps.executeUpdate();
+    public int queryToUpdateOrInsert(PreparedStatement ps) throws SQLException {
+        int res = ps.executeUpdate();
+        System.out.println(res);
+        return res;
+    }
+
+    @Override
+    public PreparedStatement getPreparedStatement(String sql) throws SQLException {
+        return conn.prepareStatement(sql);
     }
 }

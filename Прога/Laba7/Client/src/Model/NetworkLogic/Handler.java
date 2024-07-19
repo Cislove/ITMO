@@ -29,7 +29,14 @@ public class Handler {
 
     private Object getResponse() throws IOException, ClassNotFoundException {
         byte[] arr = server.listenAndGetData();
-        return deserializer.deserialize(arr).message;
+        if(arr.length == 0){
+            return null;
+        }
+        Response obj = deserializer.deserialize(arr);
+        if(obj == null){
+            return null;
+        }
+        return obj.message;
     }
     private void sendRequest(Request request) throws IOException {
         byte[] arr = serializer.serialize(request);

@@ -35,30 +35,22 @@ public class Executor implements IExecutor {
             try {
                 requestServer = view.read();
                 if(requestServer != null){
-                    responseServer = model.execute(requestServer);
-                    view.send(responseServer.getRight());
+                    if(requestServer.equals("exit")){
+                        responseServer = new Pair<>(-1, "");
+                        view.send(responseServer.getRight());
+                    }
+                    //responseServer = model.execute(requestServer);
+                    //view.send(responseServer.getRight());
                 }
             }
             catch (IOException ignored) {
-//                try {
-//                    requestClient = view.acceptClient();
-//                    if (requestClient != null) {
-//                        responseClient = model.executeServer(requestClient);
-//                        view.sendClient(responseClient);
-//                    }
-//                }
-//                catch (Exception ignored1) {
-//
-//                }
             }
             try{
-                //System.out.println("Client accepted");
                 requestClient = view.acceptClient();
-                //System.out.println("Client accepted");
                 if(requestClient != null){
-                    //System.out.println((String)requestClient.command);
+                    System.out.println((String) requestClient.command);
+                    //new Thread()
                     responseClient = model.executeServer(requestClient);
-                    //System.out.println((int) responseClient.message);
                     view.sendClient(responseClient);
                     requestClient = null;
                 }
@@ -68,7 +60,7 @@ public class Executor implements IExecutor {
             }
         } while (responseServer.getLeft() != -1);
         view.send(responseServer.getRight());
-        model.execute("save");
+        //model.execute("save");
         logger.info("Завершение работы сервера");
         System.exit(0);
     }

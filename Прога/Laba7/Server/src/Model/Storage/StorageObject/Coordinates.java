@@ -1,6 +1,7 @@
 
 package Model.Storage.StorageObject;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -8,6 +9,9 @@ import java.io.Serializable;
  * @author Ильнар Рахимов
  */
 public class Coordinates implements Serializable {
+    @closedField
+    @Serial
+    private static final long serialVersionUID = 5;
     private Float xCord; //Значение поля должно быть больше -407, Поле не может быть null
     private Float yCord; //Поле не может быть null
     public Coordinates(Float xCord, Float yCord) {

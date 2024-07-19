@@ -1,6 +1,7 @@
 package Model.CommandHandler.Commands;
 
 import Model.CommandHandler.Holders.FieldHolder;
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.StorageObject.StudyGroup;
@@ -34,19 +35,9 @@ public class UpdateCommand implements ArgumentCommand {
                 if(id < 1){
                     throw new NumberFormatException();
                 }
-                LinkedList<Object> args = new LinkedList<>();
-                args.add(id);
-                int response = (int) server.sendRequestAndGetResponse(new Request("update", args));
-                out = switch (response) {
-                    case 0 -> fieldHolder.execute(null);
-                    case 1 -> new Pair<>(0, "ID должен принадлежать элементу коллекции\n");
-                    default -> null;
-                };
+                out = fieldHolder.execute(null);
             } catch (NumberFormatException e) {
                 out = new Pair<>(0, "ID должен быть числом, большим нуля!\n");
-            }
-            catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
             }
             return out;
         }
@@ -57,6 +48,8 @@ public class UpdateCommand implements ArgumentCommand {
             int response;
             try {
                 LinkedList<Object> args = new LinkedList<>();
+                args.add(LoginAndPassword.login);
+                args.add(LoginAndPassword.password);
                 args.add(el);
                 response = (int) server.sendRequestAndGetResponse(new Request("update", args));
             } catch (IOException | ClassNotFoundException e) {
@@ -65,6 +58,8 @@ public class UpdateCommand implements ArgumentCommand {
             switch(response){
                 case 0: out.setRight("Элемент успешно добавлен\n"); break;
                 case 1: out.setRight("Номер паспорта должен быть уникальным!\n"); break;
+                case 3: out.setRight("ID должен принадлежать какой либо группе \n"); break;
+                case 2: out.setRight("У вас нет прав на изменение данной группы \n"); break;
             }
 //            LinkedList<StudyGroup> collection = storage.getAllElements();
 //            for(int i = 0; i < collection.size(); i++){

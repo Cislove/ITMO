@@ -1,27 +1,35 @@
 package Model.CommandHandler.Commands.OnServerCommands;
 
 import Model.CommandHandler.Commands.Pair;
-import Model.Storage.IStorage;
-import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.DataManager;
+import Model.Storage.StorageException;
+import Model.Storage.StorageObject.User;
 import Model.Validation.IDHandler;
+
+import java.sql.SQLException;
 
 /**
  * Класс реализации команды "clear"
  * @author Ильнар Рахимов
  */
 public class ClearCommand implements Command{
-    IStorage storage;
-    IDHandler idHandler;
-    public ClearCommand(IStorage storage, IDHandler idHandler){
-        this.storage = storage;
-        this.idHandler = idHandler;
+    DataManager dataManager;
+    public ClearCommand(DataManager dataManager){
+        this.dataManager = dataManager;
     }
     @Override
-    public Pair<Integer, String> execute() {
-        for(StudyGroup el: storage.getAllElements()){
-            idHandler.openID(Math.toIntExact(el.getId()));
+    public Pair<Integer, String> execute(User user) {
+        try{
+            for(int i = 0; i < dataManager.getCollection().size(); i++){
+                dataManager.rmGroup(i, user);
+            }
         }
-        storage.clear();
-        return new Pair<>(0, "Коллекция успешно очищена\n");
+        catch (StorageException ignored){
+
+        }
+        catch (SQLException e){
+            return new Pair<>(0, "Произошла ошибка во время удаления\n");
+        }
+        return new Pair<>(0, "Все ваши элементы удалены\n");
     }
 }

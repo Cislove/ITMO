@@ -1,9 +1,11 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -23,13 +25,15 @@ public class FilterContainsNameCommand implements ArgumentCommand {
         StringBuilder out = new StringBuilder();
         try {
             LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
             args.add(arguments);
-            List<StudyGroup> response = (LinkedList<StudyGroup>) server.sendRequestAndGetResponse(new Request("filter_contains_name", args));
+            List<StudyGroupWithUser> response = (LinkedList<StudyGroupWithUser>) server.sendRequestAndGetResponse(new Request("filter_contains_name", args));
             if(response.isEmpty()){
                 out.append("Таких элементов нет\n");
             }
             else {
-                for(StudyGroup el : response){
+                for(StudyGroupWithUser el : response){
                     out.append(el);
                 }
             }

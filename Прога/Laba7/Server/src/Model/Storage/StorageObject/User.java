@@ -1,7 +1,6 @@
 package Model.Storage.StorageObject;
 
 public class User {
-    int id;
     String login;
     String password;
     public User() {
@@ -13,13 +12,13 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getLogin() {
         return login;

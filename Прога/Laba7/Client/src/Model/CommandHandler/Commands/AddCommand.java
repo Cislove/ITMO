@@ -1,6 +1,7 @@
 package Model.CommandHandler.Commands;
 
 import Model.CommandHandler.Holders.FieldHolder;
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.IStorage;
@@ -37,9 +38,12 @@ public class AddCommand implements ArgumentCommand {
         if(out.getLeft() == 0){
             StudyGroup el = fieldHolder.getReadyEl();
             LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
             args.add(el);
             int response = 0;
             try {
+                System.out.println("Отправил\n");
                 response = (int) server.sendRequestAndGetResponse(new Request("add", args));
                 switch(response){
                     case 0: out.setRight("Элемент успешно добавлен\n"); break;

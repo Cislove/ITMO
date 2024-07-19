@@ -8,12 +8,11 @@ import Model.Validation.IDHandler;
  * @author Ильнар Рахимов
  */
 public class ClosedFieldsHolder {
-    IDHandler idHandler;
-    public ClosedFieldsHolder(IDHandler idHandler){
-        this.idHandler = idHandler;
+    public ClosedFieldsHolder(){
+
     }
     public void setFields(StudyGroup el){
-        el.setId(Long.valueOf(idHandler.getFreeId()));
+        //el.setId(Long.valueOf(idHandler.getFreeId()));
         el.setCreationDate();
     }
 }

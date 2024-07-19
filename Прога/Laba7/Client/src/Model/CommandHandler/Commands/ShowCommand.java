@@ -1,11 +1,14 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -22,11 +25,14 @@ public class ShowCommand implements Command {
     public Pair<Integer, String> execute() {
         StringBuilder response = new StringBuilder();
         try {
-            List<StudyGroup> collection = (List<StudyGroup>) server.sendRequestAndGetResponse(new Request("show", null));
+            LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
+            List<StudyGroupWithUser> collection = (List<StudyGroupWithUser>) server.sendRequestAndGetResponse(new Request("show", args));
             if(collection.isEmpty()){
                 response.append("В коллекции отсутствуют элементы\n");
             }
-            for(StudyGroup el: collection){
+            for(StudyGroupWithUser el: collection){
                 response.append(el.toString());
             }
             return new Pair<>(0, response.toString());

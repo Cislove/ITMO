@@ -1,10 +1,12 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.ObjectDescription.baseMetaData;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  * Класс реализации команды "info"
@@ -17,7 +19,10 @@ public class InfoCommand implements Command {
     }
     public Pair<Integer, String> execute(){
         try {
-            baseMetaData data = (baseMetaData) server.sendRequestAndGetResponse(new Request("info", null));
+            LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
+            baseMetaData data = (baseMetaData) server.sendRequestAndGetResponse(new Request("info", args));
             String s = "Информация о коллекции:" + "\n";
             s += "Дата инициализации - " + data.initDate + "\n";
             s += "Тип коллекции - " + data.typeCollection + "\n";

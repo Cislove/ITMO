@@ -1,11 +1,15 @@
 package Model.CommandHandler.Commands.ToClientCommands;
 
 import Model.CommandHandler.Commands.Pair;
+import Model.Storage.DataManager;
 import Model.Storage.IStorage;
+import Model.Storage.StorageException;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.User;
 import Model.Validation.IDHandler;
 import Model.ResponseLogic.Response;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,13 +17,9 @@ import java.util.List;
  * @author Ильнар Рахимов
  */
 public class RemoveByIdCommandServer implements ServerArgumentCommand {
-    private final IStorage storage;
-    private final IDHandler idHandler;
-    private Integer id;
-    public RemoveByIdCommandServer(IStorage storage, IDHandler idHandler){
-        this.storage = storage;
-        this.idHandler = idHandler;
-        id = -1;
+    private final DataManager dataManager;
+    public RemoveByIdCommandServer(DataManager dataManager){
+        this.dataManager = dataManager;
     }
 
     @Override
@@ -28,27 +28,19 @@ public class RemoveByIdCommandServer implements ServerArgumentCommand {
     }
 
     @Override
-    public Pair<Integer, Response> execute(List<Object> arguments){
+    public Pair<Integer, Response> execute(User user, List<Object> arguments){
         //System.out.println(arguments);
+        Pair<Integer, Response> response;
+        int id = (int) arguments.get(0);
         try {
-            id = (Integer) arguments.get(0);
-            if (id < 1 || !idHandler.checkId(id)) {
-                id = -1;
-                throw new NumberFormatException();
-            }
-            int i = 0;
-            for(StudyGroup el: storage.getAllElements()){
-                if(el.getId().equals(Long.valueOf(id))){
-                    storage.delElement(i);
-                    idHandler.openID(id);
-                    //System.out.println(i);
-                }
-                i++;
-            }
-            return new Pair<>(0, new Response(0));
+            dataManager.rmGroup(id, user);
         }
-        catch (NumberFormatException e){
+        catch (StorageException e){
             return new Pair<>(0, new Response(1));
         }
+        catch (SQLException e){
+            return new Pair<>(0, new Response(2));
+        }
+        return new Pair<>(0, new Response(0));
     }
 }

@@ -1,6 +1,7 @@
 package Model.CommandHandler.Commands;
 
 import Model.CommandHandler.Holders.FieldHolder;
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.StorageObject.StudyGroup;
@@ -29,6 +30,8 @@ public class AddIfMinCommand implements ArgumentCommand {
         if(out.getLeft() == 0){
             StudyGroup el = fieldHolder.getReadyEl();
             LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
             args.add(el);
             int response;
             try {

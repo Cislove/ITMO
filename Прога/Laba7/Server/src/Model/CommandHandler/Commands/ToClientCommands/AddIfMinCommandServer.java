@@ -2,8 +2,11 @@ package Model.CommandHandler.Commands.ToClientCommands;
 
 import Model.CommandHandler.Commands.Pair;
 import Model.CommandHandler.Holders.ClosedFieldsHolder;
+import Model.Storage.DataManager;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
+import Model.Storage.StorageObject.User;
 import Model.Validation.IDHandler;
 import Model.ResponseLogic.Response;
 
@@ -14,25 +17,31 @@ import java.util.List;
  * @author Ильнар Рахимов
  */
 public class AddIfMinCommandServer implements ServerArgumentCommand {
-    private final IStorage storage;
+    private final DataManager dataManager;
     private final ClosedFieldsHolder closedFieldsHolder;
-    public AddIfMinCommandServer(IStorage storage, IDHandler idHandler){
-        this.storage = storage;
-        closedFieldsHolder = new ClosedFieldsHolder(idHandler);
+    public AddIfMinCommandServer(DataManager dataManager){
+        this.dataManager = dataManager;
+        closedFieldsHolder = new ClosedFieldsHolder();
     }
     @Override
-    public Pair<Integer, Response> execute(List<Object> arguments){
+    public Pair<Integer, Response> execute(User user, List<Object> arguments){
         StudyGroup el = (StudyGroup) arguments.get(0);
         boolean flag = true;
-        for(StudyGroup inst: storage.getAllElements()){
-            if(inst.compareTo(el) <= 0) {
+        for(StudyGroupWithUser inst: dataManager.getCollection()){
+            if(inst.group.compareTo(el) <= 0) {
                 flag = false;
                 break;
             }
         }
         if(flag){
             closedFieldsHolder.setFields(el);
-            return new Pair<>(0, new Response(storage.addElement(el)));
+            try {
+                dataManager.addGroup(el, user);
+                return new Pair<>(0, new Response(0));
+            }
+            catch (Exception e){
+                return new Pair<>(0, new Response(1));
+            }
         }
         return new Pair<>(0, new Response(2));
     }

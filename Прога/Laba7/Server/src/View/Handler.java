@@ -49,6 +49,7 @@ public class Handler {
         return rec.consoleIn();
     }
     public Request acceptClient() throws IOException, ClassNotFoundException {
+        //System.out.println("Принял2\n");
         return rec.getRequest();
     }
     public void sendClient(Response response) throws IOException, ClassNotFoundException {

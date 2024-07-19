@@ -10,15 +10,16 @@ public class Converter {
         StringBuilder strUser = new StringBuilder();
         strUser.append("(");
         strUser.append("'").append(inst.getLogin()).append("', ");
-        strUser.append(inst.getPassword()).append(", ");
+        strUser.append("'").append(inst.getPassword()).append("'");
         strUser.append(")");
         return strUser.toString();
     }
-    public String convertStudyGroup(StudyGroup inst, int userId, Integer personId){
+    public String convertStudyGroup(StudyGroup inst, int userId, Integer personId, int cord_id){
         StringBuilder strStudyGroup = new StringBuilder();
         strStudyGroup.append("(");
-        strStudyGroup.append("'").append(inst.getName()).append("', ");
         strStudyGroup.append(userId).append(", ");
+        strStudyGroup.append("'").append(inst.getName()).append("', ");
+        strStudyGroup.append(cord_id).append(", ");
         strStudyGroup.append("'").append(inst.getCreationDate()).append("', ");
         strStudyGroup.append(inst.getStudentsCount()).append(", ");
         strStudyGroup.append("'").append(inst.getFormOfEducation()).append("', ");

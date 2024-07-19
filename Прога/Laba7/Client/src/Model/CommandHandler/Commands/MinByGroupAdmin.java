@@ -1,10 +1,13 @@
 package Model.CommandHandler.Commands;
 
+import Model.LoginAndPassword;
 import Model.NetworkLogic.Handler;
 import Model.RequestLogic.Request;
 import Model.Storage.StorageObject.StudyGroup;
+import Model.Storage.StorageObject.StudyGroupWithUser;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  * Класс реализации команды "min_by_group_admin"
@@ -18,7 +21,10 @@ public class MinByGroupAdmin implements Command {
     @Override
     public Pair<Integer, String> execute(){
         try {
-            StudyGroup inst = (StudyGroup) server.sendRequestAndGetResponse(new Request("min_by_group_admin", null));
+            LinkedList<Object> args = new LinkedList<>();
+            args.add(LoginAndPassword.login);
+            args.add(LoginAndPassword.password);
+            StudyGroupWithUser inst = (StudyGroupWithUser) server.sendRequestAndGetResponse(new Request("min_by_group_admin", args));
             if(inst == null){
                 return new Pair<>(0, "Все элементы коллекции без поля groupAdmin\n");
             }
