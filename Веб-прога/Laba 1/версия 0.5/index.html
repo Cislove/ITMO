@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка попадания точки в область</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 id ="laboratory-work">Лабораторная работа</h1>
+        <p>ФИО: Рахимов Ильнар Ильдарович</p>
+        <p>Группа: P3219</p>
+        <p>Вариант: 409442</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Форма для ввода данных</h2>
+            <form id="check-form" action="process" method="GET">
+                <label>Координата X:</label>
+                <div id="x-checkboxes">
+                    <input type="checkbox" id="x-4" name="x" value="-4">
+                    <label for="x-4">-4</label>
+                
+                    <input type="checkbox" id="x-3" name="x" value="-3">
+                    <label for="x-3">-3</label>
+                
+                    <input type="checkbox" id="x-2" name="x" value="-2">
+                    <label for="x-2">-2</label>
+                
+                    <input type="checkbox" id="x-1" name="x" value="-1">
+                    <label for="x-1">-1</label>
+                
+                    <input type="checkbox" id="x0" name="x" value="0">
+                    <label for="x0">0</label>
+                
+                    <input type="checkbox" id="x1" name="x" value="1">
+                    <label for="x1">1</label>
+                
+                    <input type="checkbox" id="x2" name="x" value="2">
+                    <label for="x2">2</label>
+                
+                    <input type="checkbox" id="x3" name="x" value="3">
+                    <label for="x3">3</label>
+                
+                    <input type="checkbox" id="x4" name="x" value="4">
+                    <label for="x4">4</label>
+                </div>
+                <br><label for="y">Координата Y:</label>
+                <div id="input-text">
+                <input type="text" id="y" name="y" required>
+                </div>
+
+                <br><label for="r-buttons">Параметр R:</label>
+                <div id="r-buttons">
+                    <button type="button" class="r-button" value="1">1</button>
+                    <button type="button" class="r-button" value="2">2</button>
+                    <button type="button" class="r-button" value="3">3</button>
+                    <button type="button" class="r-button" value="4">4</button>
+                    <button type="button" class="r-button" value="5">5</button>
+
+                    <input type="hidden" id="r-value" name="r">
+                </div>
+
+                <br><button id="submit" data-tooltip="Нажмите для отправки" type="submit">SEND</button>
+            </form>
+        </section>
+        <img src ="Graphic.png" /> 
+        <section id="error-message" style="display: none; text-align: center; color: red;">
+        </section>
+        <section>
+            <h2>Результаты</h2>
+            <table id="results">
+                <thead>
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>R</th>
+                        <th>Результат</th>
+                        <th>Время запроса</th>
+                        <th>Время обработки</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

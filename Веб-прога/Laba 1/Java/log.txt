@@ -1,0 +1,16 @@
+окт. 02, 2024 6:19:22 PM Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:19:22 PM Main main
+INFO: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 02, 2024 6:23:38 PM Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:23:39 PM Main main
+INFO: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 02, 2024 6:24:51 PM Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:24:51 PM Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 02, 2024 6:27:32 PM Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:27:32 PM Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null

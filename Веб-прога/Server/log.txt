@@ -1,0 +1,46 @@
+окт. 02, 2024 6:56:45 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:57:24 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 6:57:24 PM org.example.Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 02, 2024 11:47:06 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 02, 2024 11:47:07 PM org.example.Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 03, 2024 12:21:49 AM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 03, 2024 12:21:50 AM org.example.Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 03, 2024 12:27:41 AM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 03, 2024 12:27:41 AM org.example.Main main
+WARNING: Cannot read field "inStream" because "com.fastcgi.FCGIInterface.request" is null
+окт. 15, 2024 5:32:23 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 15, 2024 5:32:24 PM org.example.Main main
+WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
+окт. 15, 2024 6:38:07 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 15, 2024 6:38:07 PM org.example.FastCGIHandler handleRequest
+WARNING: Request sleep
+окт. 15, 2024 6:38:07 PM org.example.FastCGIHandler readRequestParams
+WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
+окт. 15, 2024 6:38:07 PM org.example.FastCGIHandler handleRequest
+WARNING: Request received: null
+окт. 16, 2024 1:27:06 AM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 16, 2024 1:27:07 AM org.example.FastCGIHandler handleRequest
+INFO: Request sleep
+окт. 16, 2024 1:27:07 AM org.example.FastCGIHandler readRequestParams
+WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
+окт. 16, 2024 1:27:07 AM org.example.FastCGIHandler handleRequest
+INFO: Request received: null
+окт. 16, 2024 1:39:13 AM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 16, 2024 1:39:13 AM org.example.FastCGIHandler handleRequest
+INFO: Request sleep
+окт. 16, 2024 1:39:13 AM org.example.FastCGIHandler readRequestParams
+WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
+окт. 16, 2024 1:39:13 AM org.example.FastCGIHandler handleRequest
+INFO: Request received: null

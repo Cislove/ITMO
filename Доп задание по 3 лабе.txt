@@ -1,0 +1,115 @@
+CREATE OR REPLACE FUNCTION main() RETURNS TRIGGER AS
+$$
+DECLARE
+    counter int := 1;
+    trucks truck[] :=  prepare_truck(NEW.illegal);
+BEGIN
+    DELETE FROM results;
+    DELETE FROM query_of_trucks;
+    DELETE FROM working_checkpoints;
+    PERFORM expand_table_of_trucks();
+    PERFORM expand_table_of_checkpoints();
+    WHILE (SELECT count(id) FROM query_of_trucks) <> 0 OR (SELECT count(*) FROM working_checkpoints where id_cargo IS NOT NULL) > 0 LOOP
+        trucks =  pass_move(trucks, counter);
+        counter = counter + 1;
+    END LOOP;
+    RETURN NEW;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION pass_move(trucks truck[], move int) RETURNS truck[] AS
+$$
+DECLARE
+    ind RECORD;
+BEGIN
+    FOR ind IN (SELECT * FROM working_checkpoints) LOOP
+        IF ind.id_cargo IS null AND (SELECT count('any') FROM query_of_trucks) <> 0 THEN
+            SELECT (id) INTO ind.id_cargo FROM query_of_trucks order by id LIMIT 1;
+            UPDATE working_checkpoints SET id_cargo = (SELECT (id) FROM query_of_trucks order by id LIMIT 1) WHERE id_checkpoint = ind.id_checkpoint ;
+            DELETE FROM query_of_trucks WHERE id = (SELECT id_cargo FROM working_checkpoints WHERE id_checkpoint = ind.id_checkpoint);
+        end if; -- данный блок отвечает за добавление грузовиков из очереди на свободные чекпоинты
+        IF ind.id_cargo IS NOT null THEN
+            IF trucks[ind.id_cargo].bad_cargo = TRUE THEN
+                IF random() >= (trucks[ind.id_cargo].chance_of_complete - (0.3 * (
+                    (SELECT skill FROM employees WHERE id =
+                    (SELECT id_employee FROM checkpoints WHERE id = ind.id_checkpoint))^2 / 100))) THEN
+                        INSERT INTO results(id_day, move, id_checkpoint, id_cargo, number_of_moves, weight, done)
+                            VALUES ((SELECT id FROM days ORDER BY id DESC LIMIT 1), move, ind.id_checkpoint, ind.id_cargo, trucks[ind.id_cargo].count_of_moves + 1, (SELECT weight FROM cargo WHERE id = ind.id_cargo), false);
+                        UPDATE working_checkpoints SET id_cargo = NULL WHERE id_checkpoint = ind.id_checkpoint;
+                ELSE
+                    trucks[ind.id_cargo].count_of_moves = trucks[ind.id_cargo].count_of_moves + 1;
+                    IF trucks[ind.id_cargo].number_of_moves <= trucks[ind.id_cargo].count_of_moves THEN
+                        INSERT INTO results(id_day, move, id_checkpoint, id_cargo, number_of_moves, weight, done)
+                        VALUES ((SELECT id FROM days ORDER BY id DESC LIMIT 1), move, ind.id_checkpoint, ind.id_cargo, trucks[ind.id_cargo].number_of_moves, (SELECT weight FROM cargo WHERE id = ind.id_cargo), true);
+                        UPDATE working_checkpoints SET id_cargo = NULL WHERE id_checkpoint = ind.id_checkpoint;
+                    end if;
+                end if;
+            ELSE
+                IF random() >= trucks[ind.id_cargo].chance_of_complete THEN
+                    INSERT INTO results(id_day, move, id_checkpoint, id_cargo, number_of_moves, weight, done)
+                        VALUES ((SELECT id FROM days ORDER BY id DESC LIMIT 1), move, ind.id_checkpoint, ind.id_cargo, trucks[ind.id_cargo].count_of_moves + 1, (SELECT weight FROM cargo WHERE id = ind.id_cargo), false);
+                    UPDATE working_checkpoints SET id_cargo = NULL WHERE id_checkpoint = ind.id_checkpoint;
+                ELSE
+                    trucks[ind.id_cargo].count_of_moves = trucks[ind.id_cargo].count_of_moves + 1;
+                    IF trucks[ind.id_cargo].number_of_moves <= trucks[ind.id_cargo].count_of_moves THEN
+                        INSERT INTO results(id_day, move, id_checkpoint, id_cargo, number_of_moves, weight, done)
+                        VALUES ((SELECT id FROM days ORDER BY id DESC LIMIT 1), move, ind.id_checkpoint, ind.id_cargo, trucks[ind.id_cargo].number_of_moves, (SELECT weight FROM cargo WHERE id = ind.id_cargo), true);
+                        UPDATE working_checkpoints SET id_cargo = NULL WHERE id_checkpoint = ind.id_checkpoint;
+                    end if;
+                END IF;
+            END IF;
+        end if;
+    END LOOP;
+    RETURN trucks;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION prepare_truck(illegal type_cargo) RETURNS truck[] AS
+$$ -- Метод занимается "подготовкой" грузовиков, то есть создает массив из таблицы
+   -- и назначает "рабочие" данные
+DECLARE
+    result truck[];
+    el RECORD;
+    arr_el truck;
+BEGIN
+    FOR el IN SELECT * FROM cargo LOOP
+            arr_el.id = el.id;
+            arr_el.chance_of_complete = 0.99;
+            arr_el.bad_cargo = FALSE;
+            arr_el.count_of_moves = 0;
+            IF el.type = illegal THEN
+                arr_el.chance_of_complete = 0.2;
+                arr_el.bad_cargo = TRUE;
+            END IF;
+            arr_el.number_of_moves = ceiling(el.weight / 10000);
+            result = array_append(result, arr_el);
+    END LOOP;
+    RETURN result;
+END
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION expand_table_of_checkpoints() RETURNS VOID AS
+$$ -- Метод заполняет таблицу рабочих "чекпоинтов"
+DECLARE
+    number int := (SELECT count(*) FROM checkpoints);
+    states bool;
+BEGIN
+    FOR i IN 1 .. number LOOP
+        SELECT checkpoints.state INTO states FROM checkpoints WHERE id = i;
+        IF states = TRUE THEN
+            INSERT INTO working_checkpoints VALUES (i, NULL);
+        end if;
+    end loop;
+end
+$$LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION expand_table_of_trucks() RETURNS VOID AS
+$$ -- Метод заполняет очередь из грузовиков
+DECLARE
+    el RECORD;
+BEGIN
+    FOR el IN SELECT * FROM cargo LOOP
+        INSERT INTO query_of_trucks VALUES (el.id);
+    END LOOP;
+END
+$$LANGUAGE plpgsql;

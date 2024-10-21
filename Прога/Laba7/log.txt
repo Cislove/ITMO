@@ -5134,3 +5134,27 @@ INFO: Сервер запущен
 INFO: Logger initialized
 июн. 26, 2024 11:55:46 AM Model.EntryBlock start
 INFO: Сервер запущен
+авг. 19, 2024 11:04:52 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+авг. 19, 2024 11:04:52 PM Model.EntryBlock start
+INFO: Сервер запущен
+авг. 19, 2024 11:04:53 PM Model.NetworkLogic.ChanelClientConnectionMT listenAndGetData
+INFO: Прием пакета с адреса: /192.168.1.6:53930
+авг. 19, 2024 11:04:53 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+авг. 19, 2024 11:04:53 PM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+авг. 19, 2024 11:04:53 PM Model.NetworkLogic.ChanelClientConnectionMT sendData
+INFO: Отправка пакета на адрес:/192.168.1.6:53930
+сент. 26, 2024 3:28:08 PM Logger.MyLogger <clinit>
+INFO: Logger initialized
+сент. 26, 2024 3:28:08 PM Model.EntryBlock start
+INFO: Сервер запущен
+сент. 26, 2024 3:28:12 PM Model.NetworkLogic.ChanelClientConnectionMT listenAndGetData
+INFO: Прием пакета с адреса: /172.28.100.57:59617
+сент. 26, 2024 3:28:12 PM Model.CommandHandler.SwitcherServer execute
+INFO: Вызов команды: 
+сент. 26, 2024 3:28:12 PM Model.CommandHandler.SwitcherServer execute
+INFO: Подключение нового клиента
+сент. 26, 2024 3:28:12 PM Model.NetworkLogic.ChanelClientConnectionMT sendData
+INFO: Отправка пакета на адрес:/172.28.100.57:59617
