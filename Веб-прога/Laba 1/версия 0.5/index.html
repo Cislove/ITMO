@@ -18,6 +18,7 @@
     <main>
         <section>
             <h2>Форма для ввода данных</h2>
+            <div id="section">
             <form id="check-form" action="process" method="GET">
                 <label>Координата X:</label>
                 <div id="x-checkboxes">
@@ -66,9 +67,67 @@
 
                 <br><button id="submit" data-tooltip="Нажмите для отправки" type="submit">SEND</button>
             </form>
+            <canvas id="canvas" width="400" height="400"></canvas>
+            <script>
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                const R = 100; 
+                
+                // Центр координат
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+
+                // Настройки стиля
+                ctx.fillStyle = "rgba(66, 170, 255, 0.8)";
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 1;
+
+                // Прямоугольник
+                ctx.beginPath();
+                ctx.rect(centerX , centerY - R, R/2, R);
+                ctx.fill();
+
+                // Треугольник
+                ctx.beginPath();
+                ctx.moveTo(centerX - R / 2, centerY);
+                ctx.lineTo(centerX, centerY + R);
+                ctx.lineTo(centerX, centerY);
+                ctx.closePath();
+                ctx.fill();
+
+                // Четверть круга
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, R, 0, Math.PI / 2, false);
+                ctx.lineTo(centerX, centerY);
+                ctx.closePath();
+                ctx.fill();
+
+                // Рисуем оси
+                ctx.beginPath();
+                ctx.moveTo(centerX, 50);
+                ctx.lineTo(centerX , canvas.height - 50);
+                ctx.moveTo(50, centerY);
+                ctx.lineTo(canvas.width - 50, centerY);
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+
+                // Подписи на осях
+                ctx.font = "bold 16px Arial ";
+                ctx.fillStyle = "black";
+                // ctx.fillText("0", centerX + 5, centerY + 15);
+                ctx.fillText("R", centerX + R - 5, centerY + 15);
+                ctx.fillText("R/2", centerX + R / 2 - 10, centerY + 15);
+                ctx.fillText("-R/2", centerX - R / 2 - 20, centerY + 15);
+                ctx.fillText("-R", centerX - R - 15, centerY + 15);
+                ctx.fillText("R", centerX + 5, centerY - R + 5);
+                ctx.fillText("R/2", centerX + 5, centerY - R / 2 + 5);
+                ctx.fillText("-R/2", centerX + 5, centerY + R / 2 + 5);
+                ctx.fillText("-R", centerX + 5, centerY + R + 5);
+            </script>
+        </div>
         </section>
-        <img src ="Graphic.png" /> 
         <section id="error-message" style="display: none; text-align: center; color: red;">
+            <p>'Ошибка: ' + 'сервер не отвечает'</p>
         </section>
         <section>
             <h2>Результаты</h2>

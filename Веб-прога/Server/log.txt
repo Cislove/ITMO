@@ -44,3 +44,17 @@ INFO: Request sleep
 WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
 окт. 16, 2024 1:39:13 AM org.example.FastCGIHandler handleRequest
 INFO: Request received: null
+окт. 28, 2024 8:07:18 PM org.example.Main <clinit>
+INFO: Logger initialized
+окт. 28, 2024 8:07:19 PM org.example.FastCGIHandler handleRequest
+INFO: Request sleep
+окт. 28, 2024 8:07:19 PM org.example.FastCGIHandler readRequestParams
+WARNING: Cannot read field "params" because "com.fastcgi.FCGIInterface.request" is null
+окт. 28, 2024 8:07:19 PM org.example.FastCGIHandler sendError
+INFO: sendHTTP/1.1 400 Bad Request
+Content-Type: text
+Content-Length: 166
+Access-Control-Allow-Origin: *
+
+В строке запросы должны быть переданы целочисленные значения X, Y и R (-4 <= X <= 4; -3 <= Y <= 5; 1 <= R <= 5).
+

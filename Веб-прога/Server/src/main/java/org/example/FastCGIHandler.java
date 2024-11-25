@@ -71,7 +71,7 @@ public class FastCGIHandler {
             return false;
         }
         if (x > 0 && y > 0) {
-            return y <= (r - x) && x <= r;
+            return y >= (r - x * 2) && x <= r;
         }
         if (x >= 0 && y <= 0) {
             return y >= (-r / 2f) && x <= r;

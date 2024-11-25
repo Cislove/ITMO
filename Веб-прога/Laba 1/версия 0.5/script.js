@@ -64,9 +64,9 @@ function handleSubmitFrom(){
     let yCord = document.getElementById('y').value;
     let rCord = rValueInput.value;
 
-    console.log(xCord);
-    console.log(yCord);
-    console.log(rCord);
+    // console.log(xCord);
+    // console.log(yCord);
+    // console.log(rCord);
 
     if(validateForm(xCord, yCord, rCord)){
         sendRequest(xCord, yCord, rCord);
@@ -120,7 +120,7 @@ function sendRequest(x, y, r){
 
 function processError(error){
     document.getElementById('error-message').style.display = 'block';
-    document.getElementById('error-message').innerText = 'Ошибка: ' + 'сервер не отвечает';
+    //document.getElementById('error-message').innerText = 'Ошибка: ' + 'сервер не отвечает';
     console.error('There was a problem with the fetch operation:', error);
     console.log("Ошибка");
 
@@ -147,5 +147,4 @@ function updateResultTable(data){
         '<th>' + data.processingTime + '</th>';
     newRow.innerHTML= tableRow;
     resultsTable.insertBefore(newRow, resultsTable.firstChild);
-
 }

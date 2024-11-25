@@ -51,35 +51,72 @@ input:active{
     border-color: #D33A2C;
 }
 
-#x-checkboxes {
+/* Общий стиль контейнера */
+.radio-group {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-#x-checkboxes label {
-    font-size: 16px;
-    background-color: #e0f7fa;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid #00796b;
-}
-
-#x-checkboxes input {
+/* Скрываем стандартные радио-кнопки */
+.radio-group input[type="radio"] {
     display: none;
 }
 
-
-#x-checkboxes input:checked + label {
-    background-color: #49893f;
-    color: white;
-    border-color: #004d40;
+/* Стилизация меток */
+.radio-group label {
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 2px solid #1b5e20;
+    border-radius: 8px;
+    background-color: #2e7d32; /* Более тёмный зелёный фон */
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-#x-checkboxes label:hover {
-    background-color: #b2dfdb;
-    border-color: #004d40;
+/* Цвет активных кнопок */
+.radio-group input[type="radio"]:checked + label {
+    background-color: #004d40;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 77, 64, 0.5);
+    transform: scale(1.05);
+}
+
+/* Эффект "вспышки" при наведении */
+.radio-group label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(0, 77, 64, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+/* Анимация "вспышки" */
+.radio-group label:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Поднятие текста над эффектом "вспышки" */
+.radio-group label span {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Плавная анимация текста при наведении */
+.radio-group label:hover span {
+    transform: scale(1.1);
+    color: #a5d6a7;
 }
 
 #r-buttons {
