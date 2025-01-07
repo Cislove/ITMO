@@ -1,0 +1,13 @@
+POST http://localhost:8080/api/auth/reg
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "password"
+}
+
+###
+GET localhost:8080/api/points/all_points
+
+###
+GET http://localhost:8080/
