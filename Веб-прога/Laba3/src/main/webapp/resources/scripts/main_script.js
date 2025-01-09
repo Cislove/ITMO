@@ -1,11 +1,9 @@
 const canvas = document.getElementById('chart');
 let r = getR();
-drawGraphic(3)
-// drawPoints(canvas, getTableData(), 3)
-
-const scale = (Math.min(canvas.width, canvas.height) / 3);
-const xCenter = canvas.width / 2;
-const yCenter = canvas.height / 2;
+if(r !== 0 && r != null) {
+    drawGraphic(r);
+    drawPoints(canvas, getTableData(), r);
+}
 
 canvas.addEventListener("click", function (event) {
     r = getR();
@@ -16,8 +14,8 @@ canvas.addEventListener("click", function (event) {
     }
 });
 
-function handleClickOnGraphic(canvas, event, r){
-    let graphicForm = document.getElementById("graph-form");
+function handleClickOnGraphic(canvas, event, r) {
+    document.getElementById("graph-form");
     console.log(r);
     const rect = canvas.getBoundingClientRect();
     const clickX = event.clientX - rect.left;
@@ -49,23 +47,24 @@ function drawGraphic(rValue) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "rgba(66, 170, 255, 0.8)";
+    ctx.fillStyle = "rgba(35,103,153,0.8)";
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1;
 
     ctx.beginPath();
-    ctx.rect(centerX, centerY - R, R / 2, R);
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.moveTo(centerX - R / 2, centerY);
-    ctx.lineTo(centerX, centerY + R);
-    ctx.lineTo(centerX, centerY);
+    ctx.rect(centerX - R, centerY - R, R, R);
     ctx.closePath();
     ctx.fill();
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, R, 0, Math.PI / 2, false);
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(centerX, centerY - R);
+    ctx.lineTo(centerX + R, centerY);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, R / 2, Math.PI / 2, Math.PI, false);
     ctx.lineTo(centerX, centerY);
     ctx.closePath();
     ctx.fill();
@@ -90,7 +89,7 @@ function drawGraphic(rValue) {
     ctx.fillText(`${-rValue}`, centerX + 5, centerY + R + 5);
 }
 
-function drawPoints(graphic, points, rValue){
+function drawPoints(graphic, points, rValue) {
     const centerX = graphic.width / 2;
     const centerY = graphic.height / 2;
     const R = (graphic.height - 50) / 2 / (5 / rValue);
@@ -111,7 +110,7 @@ function drawPoint(X, Y, isHit) {
     ctx.fill();
 }
 
-function getR(){
+function getR() {
     const hiddenR = document.getElementById('main_form:hiddenR');
     return hiddenR.value === "0.0" ? null : hiddenR.value;
 }
@@ -125,39 +124,40 @@ function updateHiddenField(data) {
 }
 
 function getTableData() {
-    const table = document.querySelector("table");  // Находим таблицу
-    const rows = table.querySelectorAll("tr");  // Получаем все строки таблицы
+    const table = document.querySelector("table");
+    const rows = table.querySelectorAll("tr");
 
-    // Создаем массив для хранения точек
     const points = [];
 
-    // Пропускаем первую строку (заголовки)
     for (let i = 1; i < rows.length; i++) {
-        const cells = rows[i].querySelectorAll("td");  // Получаем все ячейки в строке
+        const cells = rows[i].querySelectorAll("td");
         if (cells.length > 0) {
-            // Извлекаем значения из ячеек
-            const x = parseFloat(cells[0].innerText);  // Координата X
-            const y = parseFloat(cells[1].innerText);  // Координата Y
-            const r = parseFloat(cells[2].innerText);  // Радиус R
+            const x = parseFloat(cells[0].innerText);
+            const y = parseFloat(cells[1].innerText);
+            const r = parseFloat(cells[2].innerText);
 
-            // Добавляем точку в массив
-            points.push({ x, y, r});
+            points.push({x, y, r});
         }
     }
     return points;
 }
 
 function isHit(x, y, r) {
-    if (x > 0 && y >= 0) {
-        return x <= (r / 2) && y <= r;
-    }
-    if (x > 0 && y <= 0) {
-        if (x >= r || y <= -r) return false;
-        return (x * x + y * y) <= (r * r);
+    if (x >= 0 && y >= 0) {
+        return y <= r - x;
     }
     if (x <= 0 && y < 0) {
-        console.log(y >= (-r + (-x * 2)), x >= (-r / 2))
-        return y >= (-r + (-x * 2)) && x >= (-r / 2);
+        return x * x + y * y <= r * r / 4;
+    }
+    if (x <= 0 && y >= 0) {
+        return x >= -r && y <= r;
     }
     return false;
+}
+
+function highlightActiveButton(button) {
+    const buttons = document.querySelectorAll('.y-button');
+    buttons.forEach((btn) => btn.classList.remove('active'));
+
+    button.classList.add('active');
 }

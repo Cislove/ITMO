@@ -2,7 +2,7 @@ package org.ifmo.laba3;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 @NoArgsConstructor
 @Named("formBean")
-@SessionScoped
+@ApplicationScoped
 public class FormBean implements Serializable {
     private static final Logger logger = Logger.getLogger(FormBean.class.getName());
 
@@ -32,9 +32,7 @@ public class FormBean implements Serializable {
 
     public void submit(){
         LocalDateTime now = LocalDateTime.now();
-        logger.info("submit X: " + x + ",Y: " + y + ",R: " + r);
         Point point = new Point(x, y, r);
-        System.out.println(x + " " + y + " " + r);
         if(validate(point)) {
             boolean hitting = checkHitting(x, y, r);
             table.addRow(new TableRow(
@@ -43,24 +41,22 @@ public class FormBean implements Serializable {
                     now
             ));
         }
-        else{
-            // слать ошибку
-        }
     }
 
     public void clear(){
-        this.x = 0.0;
-        this.y = 0.0;
-        this.r = 1.0;
+        this.x = 0;
+        this.y = 0;
+        this.r = 0;
+        table.removeAllRow();
     }
 
     private boolean checkHitting(double x, double y, double r){
         if (x >= 0 && y >= 0){
-            return y >= 2 * x - r;
-        } else if (x <= 0 && y > 0){
-            return x * x + y * y <= r * r;
-        } else if (x <=0 && y <= 0){
-            return x >= -1 * r && y > -1 * r / 2;
+            return y <= r - x;
+        } else if (x <= 0 && y < 0){
+            return x * x + y * y <= r * r / 4;
+        } else if (x <= 0 && y >= 0){
+            return x >= -r && y <= r;
         } else {
             return false;
         }

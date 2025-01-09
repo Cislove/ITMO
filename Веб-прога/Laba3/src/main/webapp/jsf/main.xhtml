@@ -31,34 +31,33 @@
                 <h:form id="main_form">
                     <label>Координата X: </label>
                     <h:inputText id="inputX" value="#{formBean.x}">
-                        <f:convertNumber pattern="###.000" locale="en_US"/>
                         <f:validateDoubleRange minimum="-3.0" maximum="3.0"/>
                     </h:inputText>
                     <br/>
                     <label>Координата Y: </label>
                     <section id="yButtons">
-                        <h:commandLink value="-2">
+                        <h:commandLink value="-2" id="yButton1" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(-2)}" />
                         </h:commandLink>   <br/>
-                        <h:commandLink value="-1.5" >
+                        <h:commandLink value="-1.5" id="yButton2" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(-1.5)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="-1" >
+                        <h:commandLink value="-1" id="yButton3" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(-1)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="-0.5">
+                        <h:commandLink value="-0.5" id="yButton4" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(-0.5)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="0">
+                        <h:commandLink value="0" id="yButton5" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(-0)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="0.5">
+                        <h:commandLink value="0.5" id="yButton6" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(0.5)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="1">
+                        <h:commandLink value="1" id="yButton7" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(1)}" />
                         </h:commandLink>  <br/>
-                        <h:commandLink value="1.5">
+                        <h:commandLink value="1.5" id="yButton8" styleClass="y-button" onclick="highlightActiveButton(this)">
                             <f:ajax execute="@form" listener="#{formBean.setY(1.5)}" />
                         </h:commandLink>  <br/>
                     </section>

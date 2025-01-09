@@ -5,5 +5,8 @@
             <module name="javax.faces.api" />
             <module name="org.jboss.as.jsf" />
         </exclusions>
+        <dependencies>
+            <module name="org.postgresql" />
+        </dependencies>
     </deployment>
 </jboss-deployment-structure>

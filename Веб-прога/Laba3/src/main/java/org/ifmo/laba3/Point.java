@@ -16,8 +16,6 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Named("point")
-@SessionScoped
 @Embeddable
 public class Point implements Serializable {
     @Column(name="x", nullable = false)
